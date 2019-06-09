@@ -15,6 +15,10 @@ git commit -m "lembrete de alteracao"
 git push heroku master
 */
 
+/* bot off (worker=0)   //  on (worker=1)
+heroku scale worker=0
+*/
+
 
 /* const de links para comandos */
 
@@ -30,7 +34,7 @@ const bot = new Client();
 const activity = '!help -> for help'
 
 const token = 'NTg1NTE1NjcyODI2Njc1MjAw.XPamLA.164oloDVgXRq5YFZ4SyR7yW8-sE';
-const PREFIX = '!';
+var prefix = '!';
 
 
 
@@ -67,7 +71,8 @@ bot.on('guildMemberRemove', member => { // da mensagem quando alguem sai do serv
 
 bot.on('message', message => {
 
-    let args = message.content.substring(PREFIX.length).split(" ");
+    let args = message.content.substring(prefix.length).split(" ");
+    //const command = args.slice().toLowerCase();
 
 
 
@@ -78,7 +83,7 @@ bot.on('message', message => {
             break;
 
         case 'ola':
-            message.channel.send('pls use english'); /* Messagem sem  mençao*/
+            message.channel.send('pls use ok english'); /* Messagem sem  mençao*/
             break;
 
         case ('BOSS' || 'boss'):
