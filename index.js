@@ -41,14 +41,26 @@ bot.on('ready', () => {
     bot.user.setActivity(activity);
 })
 
+//if(message.author.bot) return; // dont run if is a bot  ver melhor
 
 
-bot.on('guildMemberAdd', member => {
+
+bot.on('guildMemberAdd', member => { // da mensagem quando alguem entra no server
 
     const channel = member.guild.channels.find(channel => channel.name === "welcome");
     if (!channel) return;
 
     channel.send(`Welcome to our server ${member} `)
+
+});
+
+
+bot.on('guildMemberRemove', member => { // da mensagem quando alguem sai do server
+
+    const channel2 = member.guild.channels.find(channel2 => channel2.name === "cya");
+    if (!channel2) return;
+
+    channel2.send(`Cya ${member} `)
 
 });
 
