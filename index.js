@@ -33,7 +33,7 @@ const { Client, Attachment } = require('discord.js');
 const bot = new Client();
 const activity = '!help -> for help'
 
-const token = 'NTg1NTE1NjcyODI2Njc1MjAw.XPamLA.164oloDVgXRq5YFZ4SyR7yW8-sE';
+const token = 'NTg1NTE1NjcyODI2Njc1MjAw.XP2IFA.NG1tlXnd_y2VUSvw5QgFghbpzBI';
 var prefix = '!';
 
 
@@ -134,6 +134,8 @@ bot.on('message', message => {
                         case '8ball':
                             message.reply('Just ask a question');
                             break;
+
+                        
 
                         default:
                             message.reply('invalid input');
