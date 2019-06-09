@@ -7,8 +7,14 @@
 6º-     git push heroku master
 7º-     no heroku verificar se tem node.js em buildpacks
 8º
-
 */
+
+/* atualizaçao
+git add .
+git commit -m "lembrete de alteracao"
+git push heroku master
+*/
+
 
 /* const de links para comandos */
 
@@ -55,6 +61,7 @@ bot.on('message', message => {
 
     switch (args[0]) {
         case 'test':
+            message.react("👌");        /* react with an emoji to your message */
             message.reply('i am online, did you missed me?').then(msg => msg.delete(10000));                  /* mensagem com mençao  e que se apaga*/
             break;
 
