@@ -71,7 +71,7 @@ bot.on('message', message => {
 
         case ('BOSS' || 'boss'):
             if (!message.member.roles.find(r => r.name === "BOSS")) return message.channel.send('YOU HAVE NO PERMISSIONS')
-            message.reply('I AM THE BOSS')
+            message.reply('YOU ARE THE BOSS').then(message.react('😎')) /*  verifica se a pessoa tem a role "boss" e caso  tenha reage com o emote e messagem */
             break;
 
         case ('pika'):
