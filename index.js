@@ -31,7 +31,7 @@ const botlink = 'https://discordapp.com/oauth2/authorize?client_id=5855156728266
 const Discord = require('discord.js');
 const { Client, Attachment } = require('discord.js');
 const bot = new Client();
-const activity = '!help -> for help'
+const activity = 'Ping me'
 
 const token = 'NTg1NTE1NjcyODI2Njc1MjAw.XP2IFA.NG1tlXnd_y2VUSvw5QgFghbpzBI';
 var prefix = '!';
@@ -72,10 +72,12 @@ bot.on('guildMemberRemove', member => { // da mensagem quando alguem sai do serv
 bot.on('message', message => {
 
     let args = message.content.substring(prefix.length).split(" ");
-    //const command = args.slice().toLowerCase();
+    //const command = args.slice(1).toLowerCase();
 
 
-    if (message.channel.type === "dm"){return;} // para se for pm
+    if (message.channel.type === "dm"){/*message.reply('Now you trigered me 😡 ');*/return;} // para se for pm
+
+    if(message.isMentioned('585515672826675200') ){message.reply(`If you need help just do __**${prefix}help**__`);return;}
 
     switch (args[0]) {
 
