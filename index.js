@@ -75,7 +75,8 @@ bot.on('message', message => {
     //const command = args.slice().toLowerCase();
 
 
-
+    if (message.channel.type === "dm"){message.reply('NOW I AM TRIGERED 😡');  //remove the message.reply to unbug
+        return;}
 
     switch (args[0]) {
 
@@ -214,6 +215,7 @@ bot.on('message', message => {
             break;
 
     }
+
 })
 
 
