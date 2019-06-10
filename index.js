@@ -76,25 +76,8 @@ bot.on('message', message => {
 
 
 
+
     switch (args[0]) {
-        case 'test':
-            message.react("👌");        /* react with an emoji to your message */
-            message.reply('i am online, did you missed me?').then(msg => msg.delete(10000));                  /* mensagem com mençao  e que se apaga*/
-            break;
-
-        case 'ola':
-            message.channel.send('pls use ok english'); /* Messagem sem  mençao*/
-            break;
-
-        case ('BOSS' || 'boss'):
-            if (!message.member.roles.find(r => r.name === "BOSS")) return message.channel.send('YOU HAVE NO PERMISSIONS')
-            message.reply('YOU ARE THE BOSS').then(message.react('😎')) /*  verifica se a pessoa tem a role "boss" e caso  tenha reage com o emote e messagem */
-            break;
-
-        case ('pika'):
-            const attachment = new Attachment('https://upload.wikimedia.org/wikipedia/pt/b/b0/025_Pikachu.png')
-            message.channel.send(message.author, attachment);
-            break;
 
         case 'help':
             {
@@ -107,9 +90,11 @@ bot.on('message', message => {
                         .addField('BOSS', 'only if you are boss', true)
                         .addField('pika', 'how cute', true)
                         .addField('8ball', 'ask a quesntion and i will answer it', true)
+                        .addField('hi','just one pm message',true )
                         .setColor(0xFFD264)
-                    message.channel.send(embed);
+                    message.member.send(embed)
                     ;
+                    message.reply('You got an email 😃');
                 }
                 else {
                     switch (args[1]) {
@@ -135,7 +120,10 @@ bot.on('message', message => {
                             message.reply('Just ask a question');
                             break;
 
-                        
+                        case 'hi':
+                            message.reply('i will pm you');
+                            break;
+
 
                         default:
                             message.reply('invalid input');
@@ -145,6 +133,31 @@ bot.on('message', message => {
                 }
             }
             break;
+
+        case 'test':
+            message.react("👌");        /* react with an emoji to your message */
+            message.reply('i am online, did you missed me?').then(msg => msg.delete(10000));                  /* mensagem com mençao  e que se apaga*/
+            break;
+
+        case 'ola':
+            message.channel.send('pls use ok english'); /* Messagem sem  mençao*/
+            break;
+
+        case 'hi':
+            message.member.send('did you missed me?'); /* pm o user */
+            break;
+
+        case ('BOSS' || 'boss'):
+            if (!message.member.roles.find(r => r.name === "BOSS")) return message.channel.send('YOU HAVE NO PERMISSIONS')
+            message.reply('YOU ARE THE BOSS').then(message.react('😎')) /*  verifica se a pessoa tem a role "boss" e caso  tenha reage com o emote e messagem */
+            break;
+
+        case ('pika'):
+            const attachment = new Attachment('https://upload.wikimedia.org/wikipedia/pt/b/b0/025_Pikachu.png')
+            message.channel.send(message.author, attachment);
+            break;
+
+
 
         case 'clear':
             if (!message.member.roles.find(r => r.name === "JANITOR")) return message.channel.send('YOU HAVE NO PERMISSIONS')
@@ -164,42 +177,42 @@ bot.on('message', message => {
 
         case '8ball':
             if (!args[1]) { message.reply('Pls do a question'); break; }
-            
-            
+
+
 
             let randomNumber = Math.floor(Math.random() * 8);
 
-            let eightBall ='';
+            let eightBall = '';
 
             switch (randomNumber) {
                 case 0:
-                    eightBall ='It is certain';
+                    eightBall = 'It is certain';
                     break;
                 case 1:
-                    eightBall='It is decidedly so';
+                    eightBall = 'It is decidedly so';
                     break;
                 case 2:
-                    eightBall='Reply hazy try again';
+                    eightBall = 'Reply hazy try again';
                     break;
                 case 3:
-                    eightBall='Cannot predict now';
+                    eightBall = 'Cannot predict now';
                     break;
                 case 4:
-                    eightBall='Do not count on it';
+                    eightBall = 'Do not count on it';
                     break;
                 case 5:
-                    eightBall='My sources say no';
+                    eightBall = 'My sources say no';
                     break;
                 case 6:
-                    eightBall='Outlook not soo good';
+                    eightBall = 'Outlook not soo good';
                     break;
                 case 7:
-                    eightBall='Signs point to yes';
+                    eightBall = 'Signs point to yes';
                     break;
-                    }
-                    message.reply(eightBall)
+            }
+            message.reply(eightBall)
             break;
-            
+
     }
 })
 
