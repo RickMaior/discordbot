@@ -45,7 +45,7 @@ bot.on('ready', () => {
     bot.user.setActivity(activity);
 })
 
-//if(message.author.bot) return; // dont run if is a bot  ver melhor
+
 
 
 
@@ -75,7 +75,10 @@ bot.on('message', message => {
     //const command = args.slice(1).toLowerCase();
 
 
-    if (message.channel.type === "dm"){/*message.reply('Now you trigered me 😡 ');*/return;} // para se for pm
+
+    if(message.author.bot) return; // dont run if is a bot  //ver melhor
+
+    if (message.channel.type === "dm"){/*message.reply('Now you trigered me 😡 ');*/return;} // para a leitura do codigo se for pm
 
     if(message.isMentioned('585515672826675200') ){message.reply(`If you need help just do __**${prefix}help**__`);return;}
 
