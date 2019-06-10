@@ -153,8 +153,8 @@ bot.on('message', message => {
             break;
 
         case ('BOSS' || 'boss'):
-            if (!message.member.roles.find(r => r.name === "BOSS")) return message.channel.send('YOU HAVE NO PERMISSIONS')
-            message.reply('YOU ARE THE BOSS').then(message.react('😎')) /*  verifica se a pessoa tem a role "boss" e caso  tenha reage com o emote e messagem */
+            //if (!message.member.roles.find(r => r.name === "BOSS")) return message.channel.send('YOU HAVE NO PERMISSIONS') // check for the role
+            message.reply('YOU ARE THE BOSS.But dont forget that <@265122531114090496> is the real boss!!').then(message.react('😎')) /*  reage com o emote e messagem  com id*/
             break;
 
         case ('pika'):
@@ -218,6 +218,9 @@ bot.on('message', message => {
             message.reply(eightBall)
             break;
 
+        /*default:
+            message.reply(`Put a valid command\nIf you dont know what you can use try __**${prefix}help**__`);
+            break;    */
     }
 
 })
