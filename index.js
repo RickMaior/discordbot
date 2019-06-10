@@ -144,7 +144,7 @@ bot.on('message', message => {
             break;
 
         case 'hi':
-            message.member.send('did you missed me?'); /* pm o user */
+            message.member.send('Did you missed me? \nDont worry, i dont run '); /* pm o user  com duas linhas    \n  para a 2º linha*/
             break;
 
         case ('BOSS' || 'boss'):
