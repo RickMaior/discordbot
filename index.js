@@ -96,7 +96,7 @@ bot.on('message', message => {
                         .addField('pika', 'how cute', true)
                         .addField('8ball', 'ask a quesntion and i will answer it', true)
                         .addField('hi','just one pm message',true )
-                        .setColor(0xFFD264)
+                        .setColor(Math.floor(Math.random() * 16777217))
                     message.member.send(embed)
                     ;
                     message.reply('You got an email 😃');
