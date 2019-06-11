@@ -165,7 +165,15 @@ bot.on('message', message => {
 
 
         case 'clear':
-            if (!message.member.roles.find(r => r.name === "JANITOR")) return message.channel.send('YOU HAVE NO PERMISSIONS')
+
+
+            //if (!message.member.roles.find(r => r.name === "JANITOR")) return message.channel.send('YOU HAVE NO PERMISSIONS')
+            //if (!message.member.roles.find(r => r.name.hasPermission('MANAGE_MESSAGES'))) return message.channel.send('YOU HAVE NO PERMISSIONS')
+            if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send('YOU HAVE NO PERMISSIONS')
+
+
+
+
             if (!args[1]) return message.reply('Pls define how many you want')
             if (args[1] > 0 && args[1] < 100) {
 
@@ -218,7 +226,7 @@ bot.on('message', message => {
             message.reply(eightBall)
             break;
 
-        /*default:
+      /* default:
             message.reply(`Put a valid command\nIf you dont know what you can use try __**${prefix}help**__`);
             break;    */
     }
