@@ -23,17 +23,19 @@ heroku scale worker=0
 /* const de links para comandos */
 
 const Discordlink = 'https://discord.gg/zarb57n';
-const botlink = 'https://discordapp.com/oauth2/authorize?client_id=585515672826675200&scope=bot&permissions=2146958847';
+//const botlink = 'https://discordapp.com/oauth2/authorize?client_id=585515672826675200&scope=bot&permissions=2146958847';
 
 
 /* Programa */
+
+//onst test = require("./test.json");
 
 const Discord = require('discord.js');
 const { Client, Attachment } = require('discord.js');
 const bot = new Client();
 const activity = 'Ping me'
 
-const token = 'NTg1NTE1NjcyODI2Njc1MjAw.XP2IFA.NG1tlXnd_y2VUSvw5QgFghbpzBI';
+const token = 'NTg1NTE1NjcyODI2Njc1MjAw.XQApew.YJ9t9xenO1ubTW7-_NsFRNHUl4w';
 var prefix = '!';
 
 
@@ -74,15 +76,22 @@ bot.on('message', message => {
     let args = message.content.substring(prefix.length).split(" ");
     //const command = args.slice(1).toLowerCase();
 
-
+    if(message.isMentioned('585515672826675200') ){console.log(message.content);}
+    if( message.content.startsWith(prefix) ){console.log(message.content);}
 
     if(message.author.bot) return; // dont run if is a bot  //ver melhor
 
-    if (message.channel.type === "dm"){/*message.reply('Now you trigered me 😡 ');*/return;} // para a leitura do codigo se for pm
+    if (message.channel.type === "dm"){message.reply('Now you trigered me 😡 ');return;} // para a leitura do codigo se for pm
 
     if(message.isMentioned('585515672826675200') ){message.reply(`If you need help just do __**${prefix}help**__`);return;}
 
-    switch (args[0]) {
+    
+    
+   if( message.content.startsWith(prefix) ){switch (args[0]) {
+
+       /* case 'link':
+            message.reply(links.botlink);
+            break; */
 
         case 'help':
             {
@@ -139,6 +148,17 @@ bot.on('message', message => {
             }
             break;
 
+        case 'set':
+            if(!args[1]){message.reply('pls say what you want to change')}
+            else{switch (args[1]) {
+                    case'prefix':
+                    prefix = args[2];
+                    message.reply(`Prefix changed to ${prefix}`);
+                    break;
+            
+            }}
+            break;
+
         case 'test':
             message.react("👌");        /* react with an emoji to your message */
             message.reply('i am online, did you missed me?').then(msg => msg.delete(10000));                  /* mensagem com mençao  e que se apaga*/
@@ -154,7 +174,7 @@ bot.on('message', message => {
 
         case ('BOSS' || 'boss'):
             //if (!message.member.roles.find(r => r.name === "BOSS")) return message.channel.send('YOU HAVE NO PERMISSIONS') // check for the role
-            message.reply('YOU ARE THE BOSS.But dont forget that <@265122531114090496> is the real boss!!').then(message.react('😎')) /*  reage com o emote e messagem  com id*/
+            message.reply('YOU ARE THE BOSS.\nBut dont forget that <@265122531114090496> is the real boss!!').then(message.react('😎')) /*  reage com o emote e messagem  com id*/
             break;
 
         case ('pika'):
@@ -229,7 +249,7 @@ bot.on('message', message => {
       /* default:
             message.reply(`Put a valid command\nIf you dont know what you can use try __**${prefix}help**__`);
             break;    */
-    }
+    }}
 
 })
 
