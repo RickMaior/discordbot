@@ -61,7 +61,7 @@ module.exports.run = async (bot, message, args) => {
 
       if (!messageSended) {
         console.log("Not found help available");
-        message.reply("Command not available for help");
+        message.reply("No help found");
       }
     });
 
