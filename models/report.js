@@ -7,6 +7,7 @@ const reportSchema =mongoose.Schema({
     reason: String,
     rUsername: String,
     rID: String,
+    server: String,
     time: String,
 });
 

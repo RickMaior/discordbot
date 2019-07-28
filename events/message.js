@@ -4,13 +4,9 @@ const fs = require("fs");
 const ms = require("ms");
 var stringArgv = require("string-argv"); // one possible way of doing the check for "  "
 
-// > a = /"(.*?)"/g;
-/*> [b] = '!ok "1 2 3"" 4'.match(a)
-[ '"1 2 3"' ]
-> [b] = '!ok "1 2 3" "4 5 6" 4'.match(a)
-[ '"1 2 3"', '"4 5 6"' ]  */
 module.exports = async (bot, message) => {
   if (message.author.bot) return;
+  
 
   // legacy mode of getting commands
   //let messageArray = message.content.split(" ");
@@ -39,8 +35,15 @@ module.exports = async (bot, message) => {
   let prefix = settings.prefix;
   var messageArray = stringArgv.default(message.content);
   let cmd = messageArray[0];
+  if(cmd === undefined){return;}
   let command = cmd.toLowerCase();
+
   let args = messageArray.slice(1);
+
+  if(message.content === "^"){
+    message.channel.send("^^")
+    
+  }
 
   if (message.channel.type === "dm") {
     message.reply("Now you make me happy 😃 ");

@@ -9,7 +9,7 @@ const mongoose = require("mongoose"); // necessario para ligar a mongoose
 
 
 module.exports.run = async (bot, message, args) => {
-  mongoose.connect("mongodb://localhost/reports"); // need for upload for database
+
 
   let rUser = message.mentions.members.first();
   if(!rUser) return message.reply("Can´t find that member.");
@@ -22,13 +22,14 @@ module.exports.run = async (bot, message, args) => {
         username: rUser.user.username,
         userID: rUser.id,
         reason: rreason,
-        /*rUsername: message.author.username,
+        rUsername: message.author.username,
         rID: message.author.id,
-        time: message.createdAT*/
+        server: message.guild.id,
+        time: message.createdAt
     });
 
     report.save()
-    .then(resutl => console.log(result))
+    .then(result => console.log(result))
     .catch(err => console.log(err));
 
     message.reply("Report has been saved");

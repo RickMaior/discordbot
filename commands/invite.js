@@ -3,7 +3,11 @@ const Discord = require("discord.js");
 const fs = require("fs");
 const ms = require("ms");
 
+
 module.exports.run = async (bot, message, args) => {
+
+
+  
   let link = await bot
     .generateInvite(["ADMINISTRATOR"])
     .then(link => {
@@ -11,6 +15,9 @@ module.exports.run = async (bot, message, args) => {
       message.reply(`Link to invite me: ${link}`);
     })
     .catch(console.error);
+
+   
+
 };
 
 module.exports.help = {

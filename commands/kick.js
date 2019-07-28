@@ -17,8 +17,12 @@ module.exports.run = async (bot, message, args) => {
       if (!member) {
         message.reply("That user isn't in this guild!");
       } else {
+        
+        let kickReason = "You were kicked from the server by the bot";
+        if(args.slice(1).join(" "))kickReason = args.slice(1).join(" ");
+
         member
-          .kick("YOU WERE KICKED FROM THIS SERVER")
+          .kick(kickReason)
           .then(() => {
             message.reply(`Successfully kicked ${user.tag}`);
           })
@@ -35,5 +39,5 @@ module.exports.help = {
   name: "Kick",
   command: "kick",
   aliases: [],
-  helpInfo: ["No description yet"]
+  helpInfo: ["kick the players you pinged"]
 };

@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 const fs = require("fs");
 const ms = require("ms");
 const emojiCharacters = require("../emojiCharacters");
-let lock = false;
+
 
 module.exports.run = async (bot, message, args) => {
   var total = 0;
@@ -26,12 +26,13 @@ module.exports.run = async (bot, message, args) => {
       .clearReactions()
       .then(() => message.react(emojiCharacters[1])) // vai reagir com emoji de 1 a 3
       .then(() => message.react(emojiCharacters[2]))
-      .then(() => message.react(emojiCharacters[3]));
+      .then(() => message.react(emojiCharacters[3]))
+      .then(() => message.react(emojiCharacters["x"]));
   }; // reaçao do emoji de 1 a 3
 
   const filter3 = (reaction, user) => {
     return (
-      [emojiCharacters[1], emojiCharacters[2], emojiCharacters[3]].includes(
+      [emojiCharacters[1], emojiCharacters[2], emojiCharacters[3], emojiCharacters["x"]].includes(
         reaction.emoji.name
       ) && user.id === message.author.id
     );
@@ -39,14 +40,20 @@ module.exports.run = async (bot, message, args) => {
 
   // INICIO DO PROGRAMA
 
-  if (lock) {
+  /*if (lock && user.id === message.author.id) {
+    message.reply("The game will end now");
+    total = 40;
+    return;
+  }*/
+
+  if (bot.game /*&& user.id != message.author.id*/) {
     message.reply("There is already a game on, try again later");
     return;
   } else {
     const gameMsg = await message.reply(
       "Game has started\nPls choose your number"
     );
-    lock = true;
+    bot.game = true;
     while (total < 31) {
       react(gameMsg);
 
@@ -70,6 +77,13 @@ module.exports.run = async (bot, message, args) => {
             case emojiCharacters[3]:
               pMove = 3;
               break;
+            case emojiCharacters["x"]:
+              pmove = 50;
+              bot.game = false;
+              gameMsg.edit(
+                `You just gave up on the game, better luck next time`
+              );
+              break;
           }
         })
         .catch(collected => {
@@ -78,11 +92,12 @@ module.exports.run = async (bot, message, args) => {
           );
           gameMsg.clearReactions();
           gameMsg.edit(
-            `TIME OUT ⏰\nYou didnt picked a number, you just lost\nTry again later\n**The bot is the winner** \nIf you dont know how to play the game, do ${settings.prefix}help game`
+            `TIME OUT ⏰\nYou didnt pick a number, you just lost\nTry again later\n**The bot is the winner** \nIf you dont know how to play the game, do ${
+              settings.prefix
+            }help game`
           );
-          lock = false;
+          bot.game = false;
           total = 50;
-          
         });
 
       console.log("pMove =" + pMove);
@@ -92,7 +107,7 @@ module.exports.run = async (bot, message, args) => {
         // caso o player ganhe
         gameMsg.edit(`The total is ${total}\n**The player is the winner**`);
         gameMsg.clearReactions();
-        lock = false;
+        bot.game = false;
         console.log("Player win");
         break;
       }
@@ -111,7 +126,7 @@ module.exports.run = async (bot, message, args) => {
         );
         console.log("Bot win");
         gameMsg.clearReactions();
-        lock = false;
+        bot.game = false;
         break;
       }
 
@@ -120,6 +135,13 @@ module.exports.run = async (bot, message, args) => {
           `The total is ${total}\nPlayer picked ${pMove}\nBot picked ${botNumber}`
         );
       }
+
+      if(total >= 40){
+        await gameMsg.edit(
+          `You just gave up on the game, better luck next time`
+        );
+      }
+
     }
     message.channel.send("END OF THE GAME");
   }
@@ -128,6 +150,8 @@ module.exports.run = async (bot, message, args) => {
 module.exports.help = {
   name: "Game",
   command: "game",
-  aliases: [],
-  helpInfo: ["The rules are simple, the 1º getting to 31 or highter wins, each player can pick 1,2 or 3"]
+  aliases: ["31"],
+  helpInfo: [
+    "The rules are simple, the 1º getting to 31 or highter wins, each player can pick 1,2 or 3"
+  ]
 };

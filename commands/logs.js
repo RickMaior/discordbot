@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
     
     if(!room){
 
-    message.guild.createChannel('log', { type: 'text' })
+    message.guild.createChannel('log', { type: 'text', parent: message.channel.parentID })
     .then(console.log)
     .catch(console.error);}
     else{
@@ -28,5 +28,5 @@ module.exports.help = {
   name: "Logs",
   command: "logs",
   aliases: ["log"],
-  helpInfo: ["No description yet"]
+  helpInfo: ["It will create a room for the logs of the server, there the bot will post when a message is deleted in outher room"]
 };
