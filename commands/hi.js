@@ -17,6 +17,7 @@ module.exports.run = async (bot, message, args) => {
       console.log("title: " + info.items[0].title);
     });
   }
+  message.reply("HEllo")
 };
 
 module.exports.help = {
