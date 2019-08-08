@@ -1,30 +1,34 @@
-/* comandos para por bot em heroku
-1º-     heroku login
-2º-     git init
-3º-     heroku git:remote <app name inheroku>
-4º-     git add .
-5º-     git commit -am "nome"
-6º-     git push heroku master
-7º-     no heroku verificar se tem node.js em buildpacks
-8º
-*/
+// comandos para por bot em heroku
+// 1º-     heroku login
+// 2º-     git init
+// 3º-     heroku git:remote <app name inheroku>
+// 4º-     git add .
+// 5º-     git commit -am "nome"
+// 6º-     git push heroku master
+// 7º-     no heroku verificar se tem node.js em buildpacks
+// 8º
 
-/* atualizaçao
-git add .
-git commit -m "lembrete de alteracao"
-git push heroku master
-*/
 
-/* bot off (worker=0)   //  on (worker=1)
-heroku scale worker=0
-*/
+//  atualizaçao
+// git add .
+// git commit -m "lembrete de alteracao"
+// git push heroku master
 
-/* Get bot started auto
- Start: pm2 start <file>
-Restart: pm2 restart <file>
-Stop: pm2 stop <file>
-Start with chech on file change: pm2 start <file> --watch
-logs: pm2 logs <file>*/
+
+
+//Atualizaçao
+// git push 
+
+//  bot off (worker=0)   //  on (worker=1)
+// heroku scale worker=0
+
+
+//  Get bot started auto
+//  Start: pm2 start <file>
+// Restart: pm2 restart <file>
+// Stop: pm2 stop <file>
+// Start with chech on file change: pm2 start <file> --watch
+// logs: pm2 logs <file> //*/
 
 //const botlink = 'https://discordapp.com/oauth2/authorize?client_id=585515672826675200&scope=bot&permissions=2146958847';
 

@@ -77,6 +77,7 @@ module.exports.run = async (bot, message, args) => {
         .addField( " has been added by ", "<@" + message.author.id + ">")
 
         await message.channel.send(embed)
+        console.log(info.items[0].url)
 
         // await message.channel.send(
         //   `The music **${info.items[0].title}** was added by __<@${
