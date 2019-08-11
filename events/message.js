@@ -3,46 +3,33 @@ const settings = require("../bot/settings.json");
 const fs = require("fs");
 const ms = require("ms");
 var stringArgv = require("string-argv"); // one possible way of doing the check for "  "
+const serverInfo = require("../models/serverInfo.js");
 
 module.exports = async (bot, message) => {
   if (message.author.bot) return;
-  
-
-  // legacy mode of getting commands
-  //let messageArray = message.content.split(" ");
-  //let cmd = messageArray[0];
-  //let command = cmd.toLowerCase();
-  //let args = messageArray.slice(1);
-
-  //console.log("args= "+ args + "\nargs2= " + args2)
-  //let args2 = []
-  //let i2 = 0
-  //console.log("args= "+ args)
-  //for (var i = 0, len = args.length; i < len; i++) {
-
-  // console.log(`args[${i}]= ` +args[i]);
-  // if(args[i]=== " " ) {continue;
-  //  }else{
-  //    if(args[i].startsWith('"') ){i2 = args2[i2].concat(args[i]) //}
-  //  }
-
-  //}
-
-  // for (var i = 0, len = args2.length; i < len; i++) { // just for debug
-  //console.log(`args2[${i}]= ` +args2[i]);
-  //}
 
   let prefix = settings.prefix;
+  const guild = await serverInfo.findOne({ server: message.guild.id });
+  if (guild && guild.prefix) {
+    prefix = guild.prefix;
+  }
+  message.guild.prefix = prefix;
+ 
+  console.log("bot.prefixes = " + prefix);
+
+ // const prefix = bot.prefixes.get(message.guild.id);
+  console.log("prefix in message =" + prefix);
   var messageArray = stringArgv.default(message.content);
   let cmd = messageArray[0];
-  if(cmd === undefined){return;}
+  if (cmd === undefined) {
+    return;
+  }
   let command = cmd.toLowerCase();
 
   let args = messageArray.slice(1);
 
-  if(message.content === "^"){
-    message.channel.send("^^")
-    
+  if (message.content === "^") {
+    message.channel.send("^^");
   }
 
   if (message.channel.type === "dm") {
@@ -51,7 +38,7 @@ module.exports = async (bot, message) => {
     return;
   }
 
-  if (message.isMentioned("585515672826675200")) {
+  if (message.isMentioned(bot.user.id)) {
     message.reply(`If you need help just do __**${prefix}help**__`);
     return;
   }

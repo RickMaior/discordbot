@@ -7,8 +7,6 @@ const Info = require("../models/info.js"); // escolher qual model usar
 const mongoose = require("mongoose");
 
 module.exports.run = async (bot, message, args) => {
- 
-
   console.log("args[0]= " + args[0]);
 
   if (args[0]) {
@@ -26,12 +24,13 @@ module.exports.run = async (bot, message, args) => {
           update = { favoriteColor: args[0] }, // what you want to change
           options = { multi: true };
 
+        function callback(err, numAffected) {
+          //console.log(`${numAffected}  ficheiros foram modificados`);
+        }
+
         // console.log("info= "+ info)
 
         Info.update(conditions, update, options, callback);
-        function callback(err, numAffected) {
-          console.log(`${numAffected}  ficheiros foram modificados`);
-        }
 
         message.reply("Your favorite color was updated to " + args[0]);
       } else {
@@ -70,7 +69,7 @@ module.exports.run = async (bot, message, args) => {
             throw err;
           }
 
-          console.log("info.favoriteColor= " + user.favoriteColor);
+          //console.log("info.favoriteColor= " + user.favoriteColor);
           message.reply(`Your favorite color is ${user.favoriteColor}`);
         }
       );
@@ -84,5 +83,7 @@ module.exports.help = {
   name: "Color",
   command: "color",
   aliases: ["info", "cor"],
-  helpInfo: ["You can tell us what is your favorite color, and see what color you did setup"]
+  helpInfo: [
+    "You can tell us what is your favorite color, and see what color you did setup"
+  ]
 };

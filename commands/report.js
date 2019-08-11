@@ -6,34 +6,34 @@ const ms = require("ms");
 const Report = require("../models/report.js"); // escolher qual model usar
 const mongoose = require("mongoose"); // necessario para ligar a mongoose
 
-
-
 module.exports.run = async (bot, message, args) => {
-
-
   let rUser = message.mentions.members.first();
-  if(!rUser) return message.reply("Can´t find that member.");
+  if (!rUser) return message.reply("Can´t find that member.");
   let rreason = args.slice(1).join(" ");
-  if(!rreason) return message.reply("please supply a reason.");
- 
+  if (!rreason) return message.reply("please supply a reason.");
 
-    const report = new Report({ // informaçao que vai ser gravada, e tem que ter schema correspondente em models
-        _id: mongoose.Types.ObjectId(),
-        username: rUser.user.username,
-        userID: rUser.id,
-        reason: rreason,
-        rUsername: message.author.username,
-        rID: message.author.id,
-        server: message.guild.id,
-        time: message.createdAt
+  const report = new Report({
+    // informaçao que vai ser gravada, e tem que ter schema correspondente em models
+    _id: mongoose.Types.ObjectId(),
+    username: rUser.user.username,
+    userID: rUser.id,
+    reason: rreason,
+    rUsername: message.author.username,
+    rID: message.author.id,
+    server: message.guild.id,
+    time: message.createdAt
+  });
+
+  report
+    .save()
+    .then(result => {
+      message.reply("Report has been saved");
+      console.log(result);
+    })
+    .catch(err => {
+      message.reply("There was an error saving the report");
+      console.log(err);
     });
-
-    report.save()
-    .then(result => console.log(result))
-    .catch(err => console.log(err));
-
-    message.reply("Report has been saved");
-
 };
 
 module.exports.help = {
