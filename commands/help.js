@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
       .addField("clear", "I will clear as many messages as you want")
       .addField("BOSS", "Only if you are boss", true)
       .addField("pika", "How cute", true)
-      .addField("8ball", "Ask a quesntion and i will answer it", true)
+      .addField("8ball", "Ask a question and i will answer it", true)
       .addField("hi", "Just one pm message", true)
       .addField("ping", "check the ping of the bot", true)
       .addField(

@@ -17,7 +17,8 @@
 
 
 //Atualizaçao
-// git push 
+
+// git push origin master
 
 //  bot off (worker=0)   //  on (worker=1)
 // heroku scale worker=0
