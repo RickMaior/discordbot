@@ -7,6 +7,9 @@ const serverInfo = require("../models/serverInfo.js");
 
 module.exports = async (bot, message) => {
   if (message.author.bot) return;
+  if(message.channel.id === "610989584389636118"){
+    message.react('✅').then(message.react('❌'))
+  }
 
   let prefix = settings.prefix;
   const guild = await serverInfo.findOne({ server: message.guild.id });

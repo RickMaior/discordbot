@@ -17,7 +17,8 @@
 
 
 //Atualizaçao
-
+//git add .
+// git commit -m "lembrete de alteracao"
 // git push origin master
 
 //  bot off (worker=0)   //  on (worker=1)
