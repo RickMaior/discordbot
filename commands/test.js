@@ -9,10 +9,6 @@ module.exports.run = async (bot, message, args) => {
     .reply("i am online, did you missed me?")
     .then(msg => msg.delete(10000)); /* mensagem com mençao  e que se apaga*/
 
-    let a = "20"
-    let b = "10"
-    let c = a + b
-    console.log("O resultado é : "+ c)
 };
 
 module.exports.help = {

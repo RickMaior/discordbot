@@ -23,6 +23,8 @@
 
 //  bot off (worker=0)   //  on (worker=1)
 // heroku scale worker=0
+//heroku ps   -> for how much time in this mouth
+
 
 
 //  Get bot started auto
