@@ -102,6 +102,7 @@ module.exports.run = async (bot, message, args) => {
           const embed = new Discord.RichEmbed()
             .setTitle("Commands available:")
             .setFooter(`Page${args[0]}/${max}`)
+            .setColor("RANDOM");
           //message.reply("List of all commands: " + commandList);
 
           // upgrade to embed
