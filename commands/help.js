@@ -59,7 +59,7 @@ module.exports.run = async (bot, message, args) => {
 
 
 
-        console.log("props.help.command=" + props.help.command);
+        //console.log("props.help.command=" + props.help.command);
         //console.log("props.help.aliases= " + props.help.aliases);
         //console.log("args[0]= " + args[0]);
         //console.log("props.helpInfo= " + props.helpInfo);

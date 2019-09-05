@@ -36,7 +36,7 @@
 
 //const botlink = 'https://discordapp.com/oauth2/authorize?client_id=585515672826675200&scope=bot&permissions=2146958847';
 
-var emoji = require("node-emoji");
+
 const emojiCharacters = require("./emojiCharacters");
 const Discordlink = "https://discord.gg/zarb57n";
 const created = "‎terça-feira, ‎4‎ de ‎junho‎ de ‎2019, ‏‎18:24:49";

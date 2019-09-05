@@ -18,10 +18,10 @@ module.exports = async (bot, message) => {
   }
   message.guild.prefix = prefix;
  
-  console.log("bot.prefixes = " + prefix);
+  
 
  // const prefix = bot.prefixes.get(message.guild.id);
-  console.log("prefix in message =" + prefix);
+ 
   var messageArray = stringArgv.default(message.content);
   let cmd = messageArray[0];
   if (cmd === undefined) {
