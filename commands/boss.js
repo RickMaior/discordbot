@@ -20,6 +20,6 @@ module.exports.run = async (bot, message, args) => {
 module.exports.help = {
   name: "Boss",
   command: "boss",
-  aliases: [],
+  aliases: [NaN],
   helpInfo: ["Just tells who is the boss"]
 };

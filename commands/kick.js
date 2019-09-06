@@ -38,6 +38,6 @@ module.exports.run = async (bot, message, args) => {
 module.exports.help = {
   name: "Kick",
   command: "kick",
-  aliases: [],
+  aliases: [NaN],
   helpInfo: ["kick the players you pinged"]
 };

@@ -57,7 +57,7 @@ module.exports.run = async (bot, message, args) => {
 module.exports.help = {
   name: "Ban",
   command: "ban",
-  aliases: [],
+  aliases: [NaN],
   helpInfo: [
     'Ban the player you pinged, do ```!ban @player (messages to delete) (reason)```, if your reason have more than one word, put your reason inside " "'
   ]

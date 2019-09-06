@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
 module.exports.help = {
   name: "Pika",
   command: "pika",
-  aliases: [],
+  aliases: [NaN],
   helpInfo: ["👆 The name of the pokemon is on the command itself  👆"]
   
 };

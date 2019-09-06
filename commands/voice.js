@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
 module.exports.help = {
   name: "Voice",
   command: "voice",
-  aliases: [],
+  aliases: [NaN],
   helpInfo: [
     "Create a voice chat that when you enter it creates one automatic voice room for you"
   ]

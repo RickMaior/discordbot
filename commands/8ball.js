@@ -48,6 +48,6 @@ module.exports.run = async (bot, message, args) => {
 module.exports.help = {
   name: "8ball",
   command: "8ball",
-  aliases: [],
+  aliases: [NaN],
   helpInfo: ["Just ask a question and i will predict your future"]
 };

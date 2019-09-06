@@ -4,6 +4,7 @@ const infoSchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   username: String,
   userID: String,
+  xp: Number,
   favoriteColor: String,
   server: String,
   time: String

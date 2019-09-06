@@ -39,6 +39,6 @@ module.exports.run = async (bot, message, args) => {
 module.exports.help = {
   name: "Report",
   command: "report",
-  aliases: [],
+  aliases: [NaN],
   helpInfo: ["You can report someone by mention him and telling the reason"]
 };

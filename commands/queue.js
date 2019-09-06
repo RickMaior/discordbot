@@ -51,6 +51,6 @@ module.exports.run = async (bot, message, args) => {
 module.exports.help = {
   name: "Queue",
   command: "queue",
-  aliases: [],
+  aliases: [NaN],
   helpInfo: ["Test of queue"]
 };

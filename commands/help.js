@@ -55,7 +55,11 @@ module.exports.run = async (bot, message, args) => {
           bot.aliases.set(alias, props.help.command);
         });
         total++;
-        commandList.push(props.help.command)
+        commandList.push({
+          "name": props.help.name,
+          "info": props.help.helpInfo,
+          "aliases": props.help.aliases
+        })
 
 
 
@@ -90,7 +94,7 @@ module.exports.run = async (bot, message, args) => {
         console.log("Not found help available");
         message.reply("From " + total + " commands i have, this one was not found");
       } else {
-        let max= Math.ceil(total / 5);
+        let max = Math.ceil(total / 5);
 
         if (Number(args[0]) <= 0 || Number(args[0]) > (max)) {
           message.reply("Please put a valid number, between 1 and " + max);
@@ -107,9 +111,12 @@ module.exports.run = async (bot, message, args) => {
 
           // upgrade to embed
           let testArray = ["1", "2", "3"]
+          // for better embed, have only one field for all commands
+          let embedMessage = "";
           commandShow.forEach((commandName) => {
-            embed.addField(commandName, "command description")
+            embedMessage = embedMessage + `__**${commandName.name}**__:\n  **description: \n**   ${commandName.info}  \n **aliases:** \n   ${commandName.aliases}  \n\n`
           });
+          embed.setDescription(embedMessage);
           message.channel.send(embed);
 
         }
@@ -123,6 +130,6 @@ module.exports.run = async (bot, message, args) => {
 module.exports.help = {
   name: "Help",
   command: "help",
-  aliases: [],
+  aliases: [NaN],
   helpInfo: ["Why you would do this command?"]
 };
