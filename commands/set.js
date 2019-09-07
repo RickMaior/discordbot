@@ -21,7 +21,7 @@ module.exports.run = async (bot, message, args) => {
               "``` \nIf you want to change it please tell me to what prefix you want it for."
           );
         } else {
-          let newPrefix = args[1];
+          let newPrefix = args[1].trim();
           const info = await ServerInfo.findOne({ server: message.guild.id });
 
           if (!info) {

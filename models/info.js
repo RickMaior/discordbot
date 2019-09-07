@@ -5,6 +5,7 @@ const infoSchema = mongoose.Schema({
   username: String,
   userID: String,
   xp: Number,
+  sendMessage: Boolean,
   favoriteColor: String,
   server: String,
   time: String

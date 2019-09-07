@@ -18,11 +18,13 @@ module.exports = async (bot, message) => {
   const info = await InfoModel.findOne({ server: message.guild.id, userID: message.author.id });
   if (info) {
     console.log("member have stuff saved")
-    if (isNaN(info.xp)) {
-      info.xp = 1;
-    } else {
-      info.xp++
-    }
+    // if (isNaN(info.xp)) {
+    //   info.xp = 1;
+    // } else {
+    //   info.xp++
+    // }
+
+    info.sendMessage = true;
     info
       .save()
       .then(result => console.log(result))
@@ -36,13 +38,14 @@ module.exports = async (bot, message) => {
       favoriteColor: "0",
       time: message.createdAt,
       server: message.guild.id,
+      sendMessage: true,
       xp: 1
     })
 
     info
-          .save()
-          .then(result => console.log(result))
-          .catch(err => console.log(err));
+      .save()
+      .then(result => console.log(result))
+      .catch(err => console.log(err));
   }
 
 
@@ -50,25 +53,22 @@ module.exports = async (bot, message) => {
 
 
   // End of xp
-  let prefix = settings.prefix;
+
+  // get prefix
+  let prePrefix = settings.prefix;
   const guild = await serverInfo.findOne({ server: message.guild.id });
   if (guild && guild.prefix) {
-    prefix = guild.prefix;
+    prePrefix = guild.prefix;
   }
+  let prefix = prePrefix.trim();
   message.guild.prefix = prefix;
+
 
 
 
   // const prefix = bot.prefixes.get(message.guild.id);
 
-  var messageArray = stringArgv.default(message.content);
-  let cmd = messageArray[0];
-  if (cmd === undefined) {
-    return;
-  }
-  let command = cmd.toLowerCase();
 
-  let args = messageArray.slice(1);
 
   if (message.content === "^") {
     message.channel.send("^^");
@@ -84,6 +84,17 @@ module.exports = async (bot, message) => {
     message.reply(`If you need help just do __**${prefix}help**__`);
     return;
   }
+
+  //begin of cheking commands
+  var messageArray = stringArgv.default(message.content);
+  let cmd = messageArray[0];
+  if (cmd === undefined) {
+    return;
+  }
+  let command = cmd.toLowerCase();
+
+  let args = messageArray.slice(1);
+
 
   let commandFile;
   if (command.startsWith(prefix)) {
