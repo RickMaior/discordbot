@@ -1,7 +1,8 @@
 {
     "prefix": "!",
     "logRoom": "log",
-    "token":"NTg1NTE1NjcyODI2Njc1MjAw.XSfm6A.cZu25BGrBTCYQI9xA3WWWWsaMnE"
+    "token":"NTg1NTE1NjcyODI2Njc1MjAw.XSfm6A.cZu25BGrBTCYQI9xA3WWWWsaMnE",
+    "yandexKey": "trnsl.1.1.20190908T014321Z.bd89c20ee7facceb.f44aaebae5a83ac3f43f5a60c7b763be5b4d7990"
 
     
 }

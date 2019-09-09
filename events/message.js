@@ -27,7 +27,7 @@ module.exports = async (bot, message) => {
     info.sendMessage = true;
     info
       .save()
-      .then(result => console.log(result))
+      .then(/*result => console.log(result)*/)
       .catch(err => console.log(err));
   } else {
     console.log("member not saved")
@@ -44,7 +44,7 @@ module.exports = async (bot, message) => {
 
     info
       .save()
-      .then(result => console.log(result))
+      .then(/*result => console.log(result)*/)
       .catch(err => console.log(err));
   }
 
