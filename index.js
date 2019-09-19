@@ -50,7 +50,7 @@ const { Client, Attachment } = require("discord.js");
 const settings = require("./bot/settings.json");
 
 const fs = require("fs");
-const token = settings.token;
+const token = process.env.TOKEN;
 
 const bot = new Client();
 
