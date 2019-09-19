@@ -6,37 +6,30 @@ const ms = require("ms");
 const { getInfo } = require("ytdl-getinfo");
 
 module.exports.run = async (bot, message, args) => {
-  // let music = await message.channel.send("(￣▽￣)/♫•*¨*•.¸¸♪");
-
-  // if(music){
-  // while (1 === 1) {
-    await music.edit(" (￣▽￣)/♪♫•*¨*•.¸¸ ");
-
-    await music.edit(" (￣▽￣)/¸♪♫•*¨*•.¸ ");
-
-    await music.edit(" (￣▽￣)/¸¸♪♫•*¨*•. ");
-
-    await music.edit(" (￣▽￣)/.¸¸♪♫•*¨*• ");
-
-    await music.edit(" (￣▽￣)/•.¸¸♪♫•*¨* ");
-
-    await music.edit(" (￣▽￣)/*•.¸¸♪♫•*¨ ");
-
-    await music.edit(" (￣▽￣)/¨*•.¸¸♪♫•* " );
-
-    await music.edit(" (￣▽￣)/*¨*•.¸¸♪♫• ");
-
-    await music.edit(" (￣▽￣)/♫•*¨*•.¸¸♪ ");
-    
-  // }}
-
-  await message.channel.send({ files: [new Attachment('./images/image1.PNG', 'image1.PNG')] }); // enviar giff/imagem
-  await message.channel.send({ files: [new Attachment('./images/200.webp', '200.webp')] }); // nao envia giff
-
- 
 
 
- };
+
+  // let response = readline();
+  // console.log("response : " + response);
+
+  // // read from console
+
+  // const readline = require('readline');
+
+  // const rl = readline.createInterface({
+  //   input: process.stdin,
+  //   output: process.stdout
+  // });
+
+  // rl.question('What do you think of Node.js? \n', (answer) => {
+  //   // TODO: Log the answer in a database
+  //   console.log(`Thank you for your valuable feedback: ${answer}`);
+
+  //   rl.close();
+  // });
+
+
+};
 
 module.exports.help = {
   name: "Hi2",

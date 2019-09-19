@@ -16,6 +16,16 @@ module.exports = async bot => {
   bot.queue = [];
   console.log("\nQueue was created");
 
+  // stuff from each server
+
+  bot.guilds.map((guild) =>{
+    guild.variable = [];
+    guild.membersOn = new Set ;
+    // arr of membersON   let arr = [ . . . set];
+    
+  })
+ 
+
   bot.game = false;
   console.log("Game lock was created");
 

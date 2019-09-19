@@ -13,46 +13,50 @@ module.exports = async (bot, message) => {
     message.react('✅').then(message.react('❌'))
   }
 
-  // Begin of xp
+  // // Begin of xp
+  console.log("tem mebro? " + message.guild.membersOn.has(message.author.id));
+  message.guild.membersOn.add(message.author.id);
+ 
+ 
 
-  const info = await InfoModel.findOne({ server: message.guild.id, userID: message.author.id });
-  if (info) {
-    console.log("member have stuff saved")
-    // if (isNaN(info.xp)) {
-    //   info.xp = 1;
-    // } else {
-    //   info.xp++
-    // }
+  // const info = await InfoModel.findOne({ server: message.guild.id, userID: message.author.id });
+  // if (info) {
+  //   console.log("member have stuff saved")
+  //   // if (isNaN(info.xp)) {
+  //   //   info.xp = 1;
+  //   // } else {
+  //   //   info.xp++
+  //   // }
 
-    info.sendMessage = true;
-    info
-      .save()
-      .then(/*result => console.log(result)*/)
-      .catch(err => console.log(err));
-  } else {
-    console.log("member not saved")
-    let info = new InfoModel({
-      _id: mongoose.Types.ObjectId(),
-      username: message.author.username,
-      userID: message.author.id,
-      favoriteColor: "0",
-      time: message.createdAt,
-      server: message.guild.id,
-      sendMessage: true,
-      xp: 1
-    })
+  //   info.sendMessage = true;
+  //   info
+  //     .save()
+  //     .then(/*result => console.log(result)*/)
+  //     .catch(err => console.log(err));
+  // } else {
+  //   console.log("member not saved")
+  //   let info = new InfoModel({
+  //     _id: mongoose.Types.ObjectId(),
+  //     username: message.author.username,
+  //     userID: message.author.id,
+  //     favoriteColor: "0",
+  //     time: message.createdAt,
+  //     server: message.guild.id,
+  //     sendMessage: true,
+  //     xp: 1
+  //   })
 
-    info
-      .save()
-      .then(/*result => console.log(result)*/)
-      .catch(err => console.log(err));
-  }
-
-
+  //   info
+  //     .save()
+  //     .then(/*result => console.log(result)*/)
+  //     .catch(err => console.log(err));
+  // }
 
 
 
-  // End of xp
+
+
+  // // End of xp
 
   // get prefix
   let prePrefix = settings.prefix;
