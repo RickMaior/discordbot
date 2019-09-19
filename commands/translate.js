@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
      translate.translate(toTranslate, { to: "pt" }, function(err, res) {
         console.log(res.text);
       });
-    message.reply("Command not working")
+   
 };
 
 module.exports.help = {
