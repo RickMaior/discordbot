@@ -36,6 +36,8 @@
 
 //const botlink = 'https://discordapp.com/oauth2/authorize?client_id=585515672826675200&scope=bot&permissions=2146958847';
 
+//setup everithing  
+// npm install --global --production windows-build-tools --vs2015
 
 const emojiCharacters = require("./emojiCharacters");
 const Discordlink = "https://discord.gg/zarb57n";
