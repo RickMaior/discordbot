@@ -43,6 +43,7 @@ const created = "‎terça-feira, ‎4‎ de ‎junho‎ de ‎2019, ‏‎18:24
 //const activity = "Ping me";
 
 
+
 require('dotenv').config()
 
 const Discord = require("discord.js");
