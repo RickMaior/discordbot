@@ -1,7 +1,4 @@
-const settings = require("../bot/settings.json");
-const Discord = require("discord.js");
-const fs = require("fs");
-const ms = require("ms");
+
 
 module.exports.run = async (bot, message, args) => {
   //if (!message.member.roles.find(r => r.name === "BOSS")) return message.channel.send('YOU HAVE NO PERMISSIONS') // check for the role

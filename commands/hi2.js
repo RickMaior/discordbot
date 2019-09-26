@@ -1,11 +1,5 @@
-const settings = require("../bot/settings.json");
-const Discord = require("discord.js");
-const Attachment = require('discord.js').Attachment;
-const fs = require("fs");
-const ms = require("ms");
-const { getInfo } = require("ytdl-getinfo");
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async () => {
 
 
 

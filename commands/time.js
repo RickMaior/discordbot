@@ -1,9 +1,6 @@
-const settings = require("../bot/settings.json");
 
-const fs = require("fs");
-const ms = require("ms");
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async (bot, message) => {
     let time = new Date;
     console.table(time);
 

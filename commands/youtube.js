@@ -1,14 +1,4 @@
-const settings = require("../bot/settings.json");
-const Discord = require("discord.js");
-const fs = require("fs");
-const ms = require("ms");
 const ytdl = require("ytdl-core");
-const { getInfo } = require('ytdl-getinfo')
-
-
-
-
-
 /*const queue = [];
 
 queue.push({
@@ -24,7 +14,7 @@ const { userID, title, url } = queue.shift();
 module.exports.run = async (bot, message, args) => {
   const { voiceChannel } = message.member;
   let link = args[0];
-  
+
 
   if (!voiceChannel) {
     return message.reply("please join a voice channel first!");
@@ -38,7 +28,7 @@ module.exports.run = async (bot, message, args) => {
       console.log("stream: ")
       console.log(JSON.stringify(stream, null, 2));
       const dispatcher = connection.playStream(stream);
-      console.log("dispatcher= "+ dispatcher)
+      console.log("dispatcher= " + dispatcher)
 
       dispatcher.on("end", () => voiceChannel.leave());
     });

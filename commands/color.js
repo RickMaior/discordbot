@@ -1,7 +1,4 @@
-const settings = require("../bot/settings.json");
-const Discord = require("discord.js");
-const fs = require("fs");
-const ms = require("ms");
+
 
 const Info = require("../models/info.js"); // escolher qual model usar
 const mongoose = require("mongoose");

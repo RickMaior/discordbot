@@ -1,12 +1,8 @@
-const settings = require("../bot/settings.json");
 const Discord = require("discord.js");
-const fs = require("fs");
-const ms = require("ms");
 
 const { getInfo } = require("ytdl-getinfo");
 
 const YouTube = require("simple-youtube-api");
-const youtube = new YouTube("AIzaSyAJ86tujARTeKe6dFPeQ4BT6_APvqn6_b8");
 
 //arr.length === 0 -> para ver se ta vazio
 
@@ -71,10 +67,10 @@ module.exports.run = async (bot, message, args) => {
         });
 
         const embed = new Discord.RichEmbed()
-        .setTitle("Youtube")
-        .setImage(info.items[0].thumbnail)
-        .addField("The music",`[info.items[0].title](https://google.com)`)
-        .addField( " has been added by ", "<@" + message.author.id + ">")
+          .setTitle("Youtube")
+          .setImage(info.items[0].thumbnail)
+          .addField("The music", `[info.items[0].title](https://google.com)`)
+          .addField(" has been added by ", "<@" + message.author.id + ">")
 
         await message.channel.send(embed)
         console.log(info.items[0].url)
