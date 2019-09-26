@@ -85,5 +85,6 @@ module.exports.help = {
   aliases: ["info", "cor"],
   helpInfo: [
     "You can tell us what is your favorite color, and see what color you did setup"
-  ]
+  ],
+  usage:"[color you want to change] "
 };

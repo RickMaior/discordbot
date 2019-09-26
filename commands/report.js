@@ -40,5 +40,6 @@ module.exports.help = {
   name: "Report",
   command: "report",
   aliases: [NaN],
-  helpInfo: ["You can report someone by mention him and telling the reason"]
+  helpInfo: ["You can report someone by mention him and telling the reason"],
+  usage:"<@user> <reason>"
 };

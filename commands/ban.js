@@ -59,6 +59,7 @@ module.exports.help = {
   command: "ban",
   aliases: [NaN],
   helpInfo: [
-    'Ban the player you pinged, do ```!ban @player (messages to delete) (reason)```, if your reason have more than one word, put your reason inside " "'
-  ]
+    'Ban the player you pinged, if your reason have more than one word, put your reason inside " "'
+  ],
+  usage: "[@player] <number of messages to delete> <reason>"
 };

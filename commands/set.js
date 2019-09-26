@@ -69,5 +69,6 @@ module.exports.help = {
   name: "Set",
   command: "set",
   aliases: ["change"],
-  helpInfo: ["If you want to change something in your bot"]
+  helpInfo: ["If you want to change something in your bot"],
+  usage: '<prefix> <new prefix to change>'
 };

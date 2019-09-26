@@ -19,5 +19,6 @@ module.exports.help = {
   name: "Clear",
   command: "clear",
   aliases: ["clean","rewind"],
-  helpInfo: ["It will clear as many messages as you request"]
+  helpInfo: ["It will clear as many messages as you request"],
+  usage:"[number of messages to delete]"
 };

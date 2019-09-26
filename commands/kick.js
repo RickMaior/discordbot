@@ -39,5 +39,6 @@ module.exports.help = {
   name: "Kick",
   command: "kick",
   aliases: [NaN],
-  helpInfo: ["kick the players you pinged"]
+  helpInfo: ["kick the players you pinged"],
+  usage: "<@user>"
 };

@@ -49,5 +49,6 @@ module.exports.help = {
   name: "8ball",
   command: "8ball",
   aliases: [NaN],
-  helpInfo: ["Just ask a question and i will predict your future"]
+  helpInfo: ["Just ask a question and i will predict your future"],
+  usage:"[question]"
 };
