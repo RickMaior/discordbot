@@ -41,7 +41,7 @@
 
 const emojiCharacters = require("./emojiCharacters");
 const Discordlink = "https://discord.gg/zarb57n";
-const created = "‎terça-feira, ‎4‎ de ‎junho‎ de ‎2019, ‏‎18:24:49";
+// const created = "‎terça-feira, ‎4‎ de ‎junho‎ de ‎2019, ‏‎18:24:49";
 //const activity = "Ping me";
 
 

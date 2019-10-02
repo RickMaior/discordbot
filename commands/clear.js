@@ -1,7 +1,4 @@
-const settings = require("../bot/settings.json");
-const Discord = require("discord.js");
-const fs = require("fs");
-const ms = require("ms");
+
 
 module.exports.run = async (bot, message, args) => {
   if (!message.member.hasPermission("MANAGE_MESSAGES"))
@@ -19,5 +16,6 @@ module.exports.help = {
   name: "Clear",
   command: "clear",
   aliases: ["clean","rewind"],
-  helpInfo: ["It will clear as many messages as you request"]
+  helpInfo: ["It will clear as many messages as you request"],
+  usage:"[number of messages to delete]"
 };

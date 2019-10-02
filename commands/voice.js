@@ -1,12 +1,8 @@
-const settings = require("../bot/settings.json");
-const Discord = require("discord.js");
-const fs = require("fs");
-const ms = require("ms");
 
-const VoiceRoom = require("../models/tempRoom.js"); // escolher qual model usar
-const mongoose = require("mongoose"); // necessario para ligar a mongoose
+//const VoiceRoom = require("../models/tempRoom.js"); // escolher qual model usar
+//const mongoose = require("mongoose"); // necessario para ligar a mongoose
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async (bot, message) => {
   
   if (!message.member.hasPermission("MANAGE_CHANNELS"))
     return message.channel.send("YOU HAVE NO PERMISSIONS");

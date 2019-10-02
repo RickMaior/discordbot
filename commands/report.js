@@ -1,7 +1,3 @@
-const settings = require("../bot/settings.json");
-const Discord = require("discord.js");
-const fs = require("fs");
-const ms = require("ms");
 
 const Report = require("../models/report.js"); // escolher qual model usar
 const mongoose = require("mongoose"); // necessario para ligar a mongoose
@@ -40,5 +36,6 @@ module.exports.help = {
   name: "Report",
   command: "report",
   aliases: [NaN],
-  helpInfo: ["You can report someone by mention him and telling the reason"]
+  helpInfo: ["You can report someone by mention him and telling the reason"],
+  usage:"<@user> <reason>"
 };

@@ -1,7 +1,4 @@
-const settings = require("../bot/settings.json");
-const Discord = require("discord.js");
-const fs = require("fs");
-const ms = require("ms");
+
 
 module.exports.run = async (bot, message, args) => {
   if (!message.member.hasPermission("KICK_MEMBERS"))
@@ -39,5 +36,6 @@ module.exports.help = {
   name: "Kick",
   command: "kick",
   aliases: [NaN],
-  helpInfo: ["kick the players you pinged"]
+  helpInfo: ["kick the players you pinged"],
+  usage: "<@user>"
 };

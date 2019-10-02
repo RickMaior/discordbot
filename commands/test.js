@@ -1,9 +1,6 @@
-const settings = require("../bot/settings.json");
 
-const fs = require("fs");
-const ms = require("ms");
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async (bot, message) => {
   message.react("😉"); /* react with an emoji to your message */
   message
     .reply("i am online, did you missed me?")

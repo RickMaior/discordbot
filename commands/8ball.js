@@ -1,7 +1,4 @@
-const settings = require("../bot/settings.json");
-const Discord = require("discord.js");
-const fs = require("fs");
-const ms = require("ms");
+
 
 module.exports.run = async (bot, message, args) => {
   if (!args[0]) {
@@ -49,5 +46,6 @@ module.exports.help = {
   name: "8ball",
   command: "8ball",
   aliases: [NaN],
-  helpInfo: ["Just ask a question and i will predict your future"]
+  helpInfo: ["Just ask a question and i will predict your future"],
+  usage:"[question]"
 };
