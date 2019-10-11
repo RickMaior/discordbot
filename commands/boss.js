@@ -18,5 +18,7 @@ module.exports.help = {
   name: "Boss",
   command: "boss",
   aliases: [NaN],
-  helpInfo: ["Just tells who is the boss"]
+  helpInfo: ["NaN"],
+  helpInfo: ["Just tells who is the boss"],
+  usage:'["on working"]'
 };

@@ -22,5 +22,6 @@ module.exports.help = {
   name: "Dog",
   command: "dog",
   aliases: ["doggy"],
-  helpInfo: ["Dog image"]
+  helpInfo: ["Dog image"],
+  usage:'["on working"]'
 };

@@ -259,5 +259,6 @@ module.exports.help = {
   name: "Game2",
   command: "game2",
   aliases: ["tictactoe"],
-  helpInfo: ["Tic tac toe game, make a row to win"]
+  helpInfo: ["Tic tac toe game, make a row to win"],
+  usage:'["on working"]'
 };

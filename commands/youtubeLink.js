@@ -94,5 +94,6 @@ module.exports.help = {
   name: "YoutubeLink",
   command: "youtubelink",
   aliases: ["ytlink", "yt2"],
-  helpInfo: ["just cheking youtube links"]
+  helpInfo: ["just cheking youtube links"],
+  usage:'["on working"]'
 };

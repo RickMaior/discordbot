@@ -19,5 +19,6 @@ module.exports.help = {
   name: "Job",
   command: "job",
   aliases: ["trabalho","jobs"],
-  helpInfo: ["Some offers i have"]
+  helpInfo: ["Some offers i have"],
+  usage:'["on working"]'
 };

@@ -15,6 +15,7 @@ module.exports.run = async (bot, message, args) => {
 module.exports.help = {
   name: "Translate",
   command: "translate",
-  aliases: [],
-  helpInfo: ["I will translate the message"]
+  aliases: [NaN],
+  helpInfo: ["I will translate the message"],
+  usage:'["on working"]'
 };

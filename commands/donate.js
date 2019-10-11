@@ -10,5 +10,6 @@ module.exports.help = {
   name: "Donate",
   command: "donate",
   aliases: ["pay"],
-  helpInfo: ["If you want to help me, you can go to this site."]
+  helpInfo: ["If you want to help me, you can go to this site."],
+  usage:'["on working"]'
 };

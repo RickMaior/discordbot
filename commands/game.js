@@ -151,5 +151,6 @@ module.exports.help = {
   aliases: ["31"],
   helpInfo: [
     "The rules are simple, the 1º getting to 31 or highter wins, each player can pick 1,2 or 3"
-  ]
+  ],
+  usage:'["on working"]'
 };

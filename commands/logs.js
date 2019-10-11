@@ -26,5 +26,6 @@ module.exports.help = {
   name: "Logs",
   command: "logs",
   aliases: ["log"],
-  helpInfo: ["It will create a room for the logs of the server, there the bot will post when a message is deleted in outher room"]
+  helpInfo: ["It will create a room for the logs of the server, there the bot will post when a message is deleted in outher room"],
+  usage:'["on working"]'
 };

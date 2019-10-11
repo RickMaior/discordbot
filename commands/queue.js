@@ -48,5 +48,6 @@ module.exports.help = {
   name: "Queue",
   command: "queue",
   aliases: [NaN],
-  helpInfo: ["Test of queue"]
+  helpInfo: ["Test of queue"],
+  usage:'["on working"]'
 };

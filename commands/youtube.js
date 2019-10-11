@@ -39,5 +39,6 @@ module.exports.help = {
   name: "Youtube",
   command: "youtube",
   aliases: ["yt"],
-  helpInfo: ["1º join a voice chat\nIf the bot gets any error, take him out of the room and try again"]
+  helpInfo: ["1º join a voice chat\nIf the bot gets any error, take him out of the room and try again"],
+  usage:'["on working"]'
 };

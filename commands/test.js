@@ -12,5 +12,6 @@ module.exports.help = {
   name: "Test",
   command: "test",
   aliases: ["test1", "test2"],
-  helpInfo: ["A command that lets you check if the bot is online"]
+  helpInfo: ["A command that lets you check if the bot is online"],
+  usage:'["on working"]'
 };

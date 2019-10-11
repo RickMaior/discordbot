@@ -9,5 +9,6 @@ module.exports.help = {
   name: "Ping",
   command: "ping",
   aliases: ["pong"],
-  helpInfo: ["Check the bot´s ping"]
+  helpInfo: ["Check the bot´s ping"],
+  usage:'["on working"]'
 };

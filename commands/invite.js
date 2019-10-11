@@ -23,5 +23,6 @@ module.exports.help = {
   name: "Invite",
   command: "invite",
   aliases: ["link"],
-  helpInfo: ["No description yet"]
+  helpInfo: ["No description yet"],
+  usage:'["on working"]'
 };

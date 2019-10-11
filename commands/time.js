@@ -19,5 +19,6 @@ module.exports.help = {
     name: "Time",
     command: "time",
     aliases: [NaN],
-    helpInfo: ["Check current time on UTC"]
+    helpInfo: ["Check current time on UTC"],
+    usage:'["on working"]'
 };

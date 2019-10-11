@@ -17,6 +17,7 @@ module.exports.help = {
   name: "Pika",
   command: "pika",
   aliases: [NaN],
-  helpInfo: ["👆 The name of the pokemon is on the command itself  👆"]
+  helpInfo: ["👆 The name of the pokemon is on the command itself  👆"],
+  usage:'["on working"]'
   
 };

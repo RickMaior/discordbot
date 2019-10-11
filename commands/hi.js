@@ -21,5 +21,6 @@ module.exports.help = {
   name: "Hi",
   command: "hi",
   aliases: ["hello", "Hello"],
-  helpInfo: ["I will say hi"]
+  helpInfo: ["I will say hi"],
+  usage:'["on working"]'
 };

@@ -19,5 +19,6 @@ module.exports.help = {
   aliases: [NaN],
   helpInfo: [
     "Create a voice chat that when you enter it creates one automatic voice room for you"
-  ]
+  ],
+  usage:'["on working"]'
 };
