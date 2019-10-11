@@ -128,7 +128,7 @@ module.exports.run = async (bot, message, args) => {
         for (let j = 0; j < board[i].length; j++) {
           if (board[i][j] === move) {
             console.log(`O lugar [${i}] [${j}] esta ocupado`);
-            board[i][j] = "x";
+            board[i][j] = "cross";
           }
         }
       }
@@ -214,7 +214,7 @@ module.exports.run = async (bot, message, args) => {
         for (let j = 0; j < board[i].length; j++) {
           if (board[i][j] === move2) {
             console.log(`O lugar [${i}] [${j}] esta ocupado`);
-            board[i][j] = "o";
+            board[i][j] = "circle";
           }
         }
       }
