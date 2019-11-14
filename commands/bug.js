@@ -5,7 +5,7 @@ module.exports.run = async (bot, message) => {
 
 
     function messageCollect(messageSend) {
-        const filter = m => !m.author.bot
+        const filter = m => !m.author.bot && m.attachments.size == 0;
 
         return message.author.send(messageSend).then(msg => msg.channel.awaitMessages(filter, { max: 1, time: 60 * 1000, errors: ['time'] })
             .then(collected => {
@@ -24,11 +24,20 @@ module.exports.run = async (bot, message) => {
 
 
 
-    problem = await messageCollect("What is your problem")
+    problem = await messageCollect("What is your problem?")
     times = await messageCollect("How many times it appen?")
 
-    let preview = await message.author.send("Resume:\nProblem: " + problem + "\nTimes: " + times)
-     
+    const embed = new Discord.RichEmbed()
+        .setColor('#0099ff')
+        .setTitle('Bug report')
+        .addField("Report was sent by: " ,`<@${message.author.id}>`, false)
+        .addField('What is your problem?', problem, false)
+        .addField('How many times it appen?', times, false)
+        .setTimestamp()
+
+    await message.author.send(embed)
+    let preview = await message.author.send("Do you like the report?")
+
 
     //confirmçao se envia menssagem ou nao
 
@@ -44,7 +53,7 @@ module.exports.run = async (bot, message) => {
             const reaction = collected.first();
 
             if (reaction.emoji.name === '✅') {
-                bot.channels.get(room).send("The user <@" + message.author.id + "> sent a bug report:\nProblem: " + problem + "\nTimes: " + times);
+                bot.channels.get(room).send(embed);
                 message.author.send('Your bug report was sent');
             } else {
                 message.author.send('Your bug report was canceled!');
