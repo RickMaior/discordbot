@@ -17,7 +17,7 @@
     "discord.js": "^11.5.1",
     "dotenv": "^8.0.0",
     "ffmpeg-binaries": "^4.0.0",
-    "mongoose": "^5.6.0",
+    "mongoose": ">=5.7.5",
     "ms": "^2.1.2",
     "node-opus": "^0.3.2",
     "simple-youtube-api": "^5.2.1",
