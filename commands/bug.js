@@ -7,7 +7,7 @@ module.exports.run = async (bot, message) => {
     function messageCollect(messageSend) {
         const filter = m => !m.author.bot
 
-         return message.author.send(messageSend).then(msg => msg.channel.awaitMessages(filter, { max: 1, time: 60 * 1000, errors: ['time'] })
+        return message.author.send(messageSend).then(msg => msg.channel.awaitMessages(filter, { max: 1, time: 60 * 1000, errors: ['time'] })
             .then(collected => {
                 return collected.first().content
                 //message.author.send("Your answer is: \n" + collected.first().content)
@@ -21,14 +21,38 @@ module.exports.run = async (bot, message) => {
     await message.author.createDM()
 
 
- 
 
 
-   problem = await  messageCollect("What is your problem")
-   times = await messageCollect("How many times it appen?")
 
-    await message.author.send("Resume:\nProblem: " + problem + "\nTimes: " + times)
-    bot.channels.get(room).send("The user <@"+ message.author.id +"> sent a bug report:\nProblem: " + problem + "\nTimes: " + times)
+    problem = await messageCollect("What is your problem")
+    times = await messageCollect("How many times it appen?")
+
+    let preview = await message.author.send("Resume:\nProblem: " + problem + "\nTimes: " + times)
+     
+
+    //confirmçao se envia menssagem ou nao
+
+
+    preview.react('✅').then(() => preview.react('❌'));
+
+    const filter = (reaction, user) => {
+        return ['✅', '❌'].includes(reaction.emoji.name) && user.id === message.author.id;
+    };
+
+    preview.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
+        .then(collected => {
+            const reaction = collected.first();
+
+            if (reaction.emoji.name === '✅') {
+                bot.channels.get(room).send("The user <@" + message.author.id + "> sent a bug report:\nProblem: " + problem + "\nTimes: " + times);
+                message.author.send('Your bug report was sent');
+            } else {
+                message.author.send('Your bug report was canceled!');
+            }
+        })
+        .catch(collected => {
+            message.author.send('You didnt reacted, your bug report was canceled');
+        });
 
 
 
