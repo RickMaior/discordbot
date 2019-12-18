@@ -30,7 +30,7 @@ module.exports.run = async (bot, message) => {
     const embed = new Discord.RichEmbed()
         .setColor('#0099ff')
         .setTitle('Bug report')
-        .addField("Report was sent by: " ,`<@${message.author.id}>`, false)
+        .addField("Report was sent by: ", `<@${message.author.id}>`, false)
         .addField('What is your problem?', problem, false)
         .addField('How many times it appen?', times, false)
         .setTimestamp()
