@@ -7,9 +7,9 @@ module.exports.run = async (bot, message, args) => {
 };
 
 module.exports.help = {
-	name: "QR Code",
-	command: "qr",
-	aliases: ["code", "qrcode"],
-	helpInfo: ["give me a text, i give u a qr code"],
+	name: "SMS",
+	command: "sms",
+	aliases: ["message"],
+	helpInfo: ["what u want the sms for"],
 	usage: "[text to put in qr]"
 };
