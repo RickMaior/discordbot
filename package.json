@@ -2,11 +2,7 @@
   "name": "discord-bot",
   "version": "1.0.0",
   "description": "",
-  "engines": {
-    "node": "=12.14"
-    
-  },
-  "engineStrict" : true,
+  "engineStrict": true,
   "main": "index.js",
   "scripts": {
     "start": "node .",
@@ -25,8 +21,7 @@
     "ffmpeg-binaries": "^4.0.0",
     "mongoose": ">=5.8.1",
     "ms": "^2.1.2",
-    "node": "=13.3.0",
-    "node-fetch": "^2.6.0",
+    "node": "=12.14.0",
     "node-opus": "^0.3.3",
     "npm": "=6.13.4",
     "simple-youtube-api": "^5.2.1",
