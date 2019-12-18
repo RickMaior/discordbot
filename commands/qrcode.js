@@ -25,6 +25,9 @@ module.exports.run = async (bot, message, args) => {
 	})
 		.then((response) => {
 			//console.log(response)
+			if(!response.data){
+				return message.reply("There was an error, please contact support")
+			}
 			
 			let qr = new Discord.Attachment(response.data, "QRcode");
 			const embed = new Discord.RichEmbed()
@@ -37,6 +40,9 @@ module.exports.run = async (bot, message, args) => {
 
 		})
 		.catch((error) => {
+			
+		 message.reply("There was an error, please contact support")
+			
 			console.log(error)
 		})
 
