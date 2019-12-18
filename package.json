@@ -2,6 +2,11 @@
   "name": "discord-bot",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": ">=12.14"
+    
+  },
+  "engineStrict" : true,
   "main": "index.js",
   "scripts": {
     "start": "node .",
