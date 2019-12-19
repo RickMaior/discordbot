@@ -1,7 +1,6 @@
 const settings = require("../bot/settings.json");
 
-const fs = require("fs");
-const ms = require("ms");
+
 
 module.exports = async (bot, message) => {
   let log = settings.logRoom; //room where all notifications will be

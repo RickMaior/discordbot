@@ -1,7 +1,4 @@
-const settings = require("../bot/settings.json");
-const Discord = require("discord.js");
-const fs = require("fs");
-const ms = require("ms");
+
 const ServerInfo = require("../models/serverInfo.js");
 const mongoose = require("mongoose");
 

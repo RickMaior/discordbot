@@ -1,7 +1,4 @@
-const settings = require("../bot/settings.json");
 
-const fs = require("fs");
-const ms = require("ms");
 
 module.exports = async (bot, member) => {
   let guild = bot.guilds.find(guild => guild.id === member.guild.id);

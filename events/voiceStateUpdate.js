@@ -1,7 +1,4 @@
-const settings = require("../bot/settings.json");
 
-const fs = require("fs");
-const ms = require("ms");
 
 const TempRoom = require("../models/tempRoom.js");
 const mongoose = require("mongoose");

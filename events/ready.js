@@ -1,9 +1,6 @@
-const settings = require("../bot/settings.json");
-const Discord = require("discord.js");
-const fs = require("fs");
-const ms = require("ms");
+
 const activity = process.env.ACTIVITY;
-const serverInfo = require("../models/serverInfo.js");
+
 require("dotenv").config();
 
 const mongoose = require("mongoose"); // necessario para ligar a mongoose

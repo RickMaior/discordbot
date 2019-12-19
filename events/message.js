@@ -1,11 +1,8 @@
 const settings = require("../bot/settings.json");
 
-const fs = require("fs");
-const ms = require("ms");
+
 var stringArgv = require("string-argv"); // one possible way of doing the check for "  "
 const serverInfo = require("../models/serverInfo.js");
-const InfoModel = require("../models/info.js");
-const mongoose = require("mongoose");
 
 module.exports = async (bot, message) => {
   if (message.author.bot) return;
