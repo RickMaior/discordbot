@@ -9,7 +9,7 @@ module.exports.run = async (bot, message) => {
     if (time.getDay() === 0 || time.getDay() === 6) {
         message.channel.send("Today is weekend, no worries 😃")
     } else {
-        message.channel.send("Today is day of work")
+        message.channel.send("Today is day of work!! ")
     }
 
 
