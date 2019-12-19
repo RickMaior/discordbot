@@ -19,6 +19,7 @@
     "ffmpeg-binaries": "^4.0.0",
     "mongoose": ">=5.8.1",
     "ms": "^2.1.2",
+    "node-gyp": "^5.0.7",
     "node-opus": "^0.3.3",
     "simple-youtube-api": "^5.2.1",
     "string-argv": "^0.3.1",
