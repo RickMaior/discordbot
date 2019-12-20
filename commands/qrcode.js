@@ -36,6 +36,7 @@ module.exports.run = async (bot, message, args) => {
 		  .setColor("RANDOM")
 		  .setImage(response.data)
 		  .setDescription("Text: " + args[0])
+		  .setURL("http://qrcode.youlikeshare.com/")
 
 		  message.channel.send(embed)
 
