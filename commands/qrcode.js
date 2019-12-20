@@ -1,5 +1,6 @@
 const axios = require("axios");
 const Discord = require("discord.js");
+const xRapidKey = process.env.XRapidAPIKey;
 
 module.exports.run = async (bot, message, args) => {
 	if(!args[0]){
@@ -13,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
 		"headers": {
 			"content-type": "application/octet-stream",
 			"x-rapidapi-host": "pierre2106j-qrcode.p.rapidapi.com",
-			"x-rapidapi-key": process.env.XRapidAPIKey
+			"x-rapidapi-key": xRapidKey
 		}, "params": {
 			"backcolor": "ffffff",
 			"pixel": "10",
