@@ -55,5 +55,5 @@ module.exports.help = {
 	command: "qr",
 	aliases: ["code", "qrcode"],
 	helpInfo: ["give me a text, i give u a qr code"],
-	usage: "[text to put in qr]"
+	usage: "<text to put in qr>"
 };
