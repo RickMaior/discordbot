@@ -3,6 +3,7 @@ const room = "634793628124053545"
 
 module.exports.run = async (bot, message) => {
 
+   await  message.author.send("text").then(msg => msg.delete()).catch(() => message.reply("cant send a dm"))
 
     function messageCollect(messageSend) {
         const filter = m => !m.author.bot && m.attachments.size == 0;
@@ -13,13 +14,12 @@ module.exports.run = async (bot, message) => {
                 //message.author.send("Your answer is: \n" + collected.first().content)
 
             })
-            .catch(collected => message.author.send("You didnt send any message,your report was canceled, please try again"))
+            .catch(() => message.author.send("You didnt send any message,your report was canceled, please try again"))
         )
 
     }
 
-    await message.author.createDM()
-
+    
 
 
 

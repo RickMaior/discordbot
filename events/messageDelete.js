@@ -5,10 +5,7 @@ const settings = require("../bot/settings.json");
 module.exports = async (bot, message) => {
   let log = settings.logRoom; //room where all notifications will be
 
-  if (message.channel.type === "dm") {
-    message.reply("Now you trigered me 😡 ");
-    return;
-  }
+
 
   var room = message.guild.channels.find(room => room.name === log);
 
