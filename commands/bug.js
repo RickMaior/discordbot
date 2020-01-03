@@ -3,8 +3,13 @@ const room = "634793628124053545"
 
 module.exports.run = async (bot, message) => {
 
-   await  message.author.send("text").then(msg => msg.delete()).catch(() => message.reply("cant send a dm"))
+    let messageSend = true;
 
+   await  message.author.send("text").then(msg => msg.delete()).catch(() => {
+       message.reply("cant send a dm")
+       messageSend = false;
+    })
+ if (!messageSend) return
     function messageCollect(messageSend) {
         const filter = m => !m.author.bot && m.attachments.size == 0;
 
