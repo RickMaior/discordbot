@@ -1,7 +1,7 @@
 
 
 module.exports = async (bot, messageReaction, user) => {
-    console.log("message reaction: " + messageReaction.emoji);
+    //console.log("message reaction: " + messageReaction.emoji);
      
 
 };
