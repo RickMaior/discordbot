@@ -79,7 +79,7 @@ module.exports.run = async (bot, message, args) => {
 module.exports.help = {
   name: "Color",
   command: "color",
-  aliases: ["info", "cor"],
+  aliases: [ "cor"],
   helpInfo: [
     "You can tell us what is your favorite color, and see what color you did setup"
   ],
