@@ -39,18 +39,18 @@
 //setup everithing  
 // npm install --global --production windows-build-tools --vs2015
 
-const emojiCharacters = require("./emojiCharacters");
-const Discordlink = "https://discord.gg/zarb57n";
+//const emojiCharacters = require("./emojiCharacters");
+//const Discordlink = "https://discord.gg/zarb57n";
 // const created = "‎terça-feira, ‎4‎ de ‎junho‎ de ‎2019, ‏‎18:24:49";
 //const activity = "Ping me";
-
+//const settings = require("./bot/settings.json");
 
 
 require('dotenv').config()
 
 const Discord = require("discord.js");
 const { Client, Attachment } = require("discord.js");
-const settings = require("./bot/settings.json");
+
 
 const fs = require("fs");
 const token = process.env.TOKEN;
@@ -112,3 +112,18 @@ fs.readdir("./events/", (err, files) => {
 });
 
 bot.login(token);
+
+
+/* -------------------------------------------------------------------------------------------------------------------------- */
+//Inicio da coneçao com outra app
+console.log("Starting to connect")
+
+let axios = require("axios")
+
+
+axios.post("http://localhost:3000/info", {
+  body:{
+    firstName: 'Fred',
+    lastName: 'Flintstone'}
+
+});
