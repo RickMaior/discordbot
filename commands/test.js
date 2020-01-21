@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+let axios = require("axios")
 
 module.exports.run = async (bot, message, args) => {
 
@@ -16,6 +17,17 @@ module.exports.run = async (bot, message, args) => {
 
 
 message.reply("Test of what?")
+
+
+
+
+// axios.post("http://localhost:3000/info", {
+//   body:{
+//     args:args,
+//     message: message.content
+//   }
+
+// }).catch(err=> message.reply("I wanst able to make the request"));
 
 
 
