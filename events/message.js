@@ -4,6 +4,19 @@ const settings = require("../bot/settings.json");
 var stringArgv = require("string-argv"); // one possible way of doing the check for "  "
 const serverInfo = require("../models/serverInfo.js");
 
+let io = require('socket.io-client');
+let socket = io.connect("https://rickmaior-chat-test.glitch.me/", {
+    reconnection: true
+});
+
+socket.on('connect', function () {
+  console.log("connected on socket")
+});
+
+socket.on('disconnect', function () {
+  console.log("disconected off socket")
+});
+
 module.exports = async (bot, message) => {
   if (message.author.bot) return;
   if (message.channel.id === "610989584389636118") {
@@ -14,6 +27,18 @@ module.exports = async (bot, message) => {
     console.log("The user sent a PM-> " + message.author.tag);
 
   } else {
+
+
+    if (message.channel.id === "671023594712858624") {
+
+       socket.emit('chat message', message.content);
+
+    }
+   
+
+
+
+
     // // Begin of xp  arranjar
     console.log("tem mebro? " + message.guild.membersOn.has(message.author.id));
     message.guild.membersOn.add(message.author.id);

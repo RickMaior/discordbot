@@ -58,6 +58,11 @@ const token = process.env.TOKEN;
 const bot = new Client();
 
 
+
+
+
+
+
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 bot.events = new Discord.Collection();
@@ -116,14 +121,3 @@ bot.login(token);
 
 /* -------------------------------------------------------------------------------------------------------------------------- */
 //Inicio da coneçao com outra app
-// // console.log("Starting to connect")
-
-// let axios = require("axios")
-
-
-// axios.post("http://localhost:3000/info", {
-//   body:{
-//     firstName: 'Fred',
-//     lastName: 'Flintstone'}
-
-// });

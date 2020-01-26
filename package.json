@@ -17,6 +17,7 @@
     "discord.js": "^11.5.1",
     "dotenv": "^8.2.0",
     "mongoose": ">=5.8.1",
+    "socket.io-client": "^2.3.0",
     "string-argv": "^0.3.1"
   }
 }
