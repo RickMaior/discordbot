@@ -58,7 +58,18 @@ const token = process.env.TOKEN;
 const bot = new Client();
 
 
+let io = require('socket.io-client');
+let socket = io.connect("https://rickmaior-chat-test.glitch.me/", {
+    reconnection: true
+});
 
+socket.on('connect', function () {
+  console.log("connected on socket")
+});
+
+socket.on('disconnect', function () {
+  console.log("disconected off socket")
+});
 
 
 
@@ -118,6 +129,9 @@ fs.readdir("./events/", (err, files) => {
 
 bot.login(token);
 
+module.exports = {
+  socket
+}
 
 /* -------------------------------------------------------------------------------------------------------------------------- */
 //Inicio da coneçao com outra app

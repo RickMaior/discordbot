@@ -4,20 +4,15 @@ const settings = require("../bot/settings.json");
 var stringArgv = require("string-argv"); // one possible way of doing the check for "  "
 const serverInfo = require("../models/serverInfo.js");
 
-let io = require('socket.io-client');
-let socket = io.connect("https://rickmaior-chat-test.glitch.me/", {
-    reconnection: true
-});
 
-socket.on('connect', function () {
-  console.log("connected on socket")
-});
 
-socket.on('disconnect', function () {
-  console.log("disconected off socket")
-});
+const {socket}  =require( "../index.js")
 
 module.exports = async (bot, message) => {
+
+
+
+
   if (message.author.bot) return;
   if (message.channel.id === "610989584389636118") {
     message.react('✅').then(message.react('❌'))
@@ -31,10 +26,10 @@ module.exports = async (bot, message) => {
 
     if (message.channel.id === "671023594712858624") {
 
-       socket.emit('chat message', message.content);
+      socket.emit('chat message', message.content);
 
     }
-   
+
 
 
 
