@@ -4,6 +4,7 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
+    //tentar const member = message.mentions.members.first() || client.members.get(args[0]);
 
     if (!args[0]) {
         var member = message.member
