@@ -26,7 +26,7 @@ module.exports = async (bot, message) => {
 
     if (message.channel.id === "671023594712858624") {
 
-      socket.emit('chat message', message.content);
+      socket.emit('discord message', message.content, message.author.username);
 
     }
 
