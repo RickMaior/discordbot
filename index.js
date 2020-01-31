@@ -45,6 +45,8 @@
 //const activity = "Ping me";
 //const settings = require("./bot/settings.json");
 
+// comentario de teste
+
 
 require('dotenv').config()
 
