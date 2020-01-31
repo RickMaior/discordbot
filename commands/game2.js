@@ -1,6 +1,8 @@
 
 const emojiCharacters = require("../emojiCharacters");
 
+// TODO : fix when someone plays on a zone that was played, dont lose his turn
+
 module.exports.run = async (bot, message, args) => {
   var board = [["a", "b", "c"], ["d", "e", "f"], ["g", "h", "i"]];
 

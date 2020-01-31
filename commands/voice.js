@@ -3,6 +3,7 @@
 //const mongoose = require("mongoose"); // necessario para ligar a mongoose
 
 module.exports.run = async (bot, message) => {
+  //TODO: save the new room on db
   
   if (!message.member.hasPermission("MANAGE_CHANNELS"))
     return message.channel.send("YOU HAVE NO PERMISSIONS");
