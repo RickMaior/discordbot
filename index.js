@@ -61,7 +61,7 @@ const bot = new Client();
 
 
 let io = require('socket.io-client');
-let socket = io.connect("https://rickmaior-chat-test.glitch.me/", {
+let socket = io.connect("https://webpagerick.herokuapp.com/", {
     reconnection: true
 });
 
