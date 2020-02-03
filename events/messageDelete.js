@@ -6,13 +6,14 @@ module.exports = async (bot, message) => {
   let log = settings.logRoom; //room where all notifications will be
 
 
+  if (message.guild) {
+    var room = message.guild.channels.find(room => room.name === log);
 
-  var room = message.guild.channels.find(room => room.name === log);
-
-  if (room) {
-    if (message.channel.name != log) {
-      room.send(`A message  was deleted in ${message.channel.name}`);
-      console.log(`A message  was deleted in ${message.channel.name}`);
+    if (room) {
+      if (message.channel.name != log) {
+        room.send(`A message  was deleted in ${message.channel.name}`);
+        console.log(`A message  was deleted in ${message.channel.name}`);
+      }
     }
   }
 };
