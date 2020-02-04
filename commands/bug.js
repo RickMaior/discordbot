@@ -3,7 +3,7 @@ const room = "634793628124053545"
 
 const {messageCollect} = require("../utils/messageFuctions.js")
 
-module.exports.run = async (bot, message) => {
+module.exports.run = async (bot, message, args) => {
 
     let messageSend = true;
 
