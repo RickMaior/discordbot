@@ -1,5 +1,5 @@
 const { messageCollect } = require("../utils/messageFuctions.js");
- const sgMail = require('@sendgrid/mail');
+const sgMail = require('@sendgrid/mail');
 
 //check emails:
 // https://www.mail-tester.com/
@@ -8,15 +8,15 @@ const { messageCollect } = require("../utils/messageFuctions.js");
 
 module.exports.run = async (bot, message, args) => {
 
-    message.reply("Command not working")
+   // message.reply("Command not working")
     //TODO: make email work
-    // const email = await messageCollect("What is your email?", message);
-    // console.log("email: " + email)
+    const email = await messageCollect("What is your email?", message);
+    console.log("email: " + email)
 
 
-   
+
     // sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-   
+
     // const msg = {
     //     to: 'test@example.com',
     //     from: 'test@example.com',
@@ -28,6 +28,33 @@ module.exports.run = async (bot, message, args) => {
     // console.log("emailsend")
     // console.log(msg)
 
+
+    var nodemailer = require('nodemailer');
+
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: process.env.EMAIL,
+            pass: process.env.EMAILPASSWORD
+        }
+    });
+
+    var mailOptions = {
+        from: process.env.EMAIL,
+        to: email,
+        subject: 'Pegasus Newsletter',
+        text: 'This is an automatic message, pls dont reply to this email. If you want to unsuscribe to this go to pegasus discord channel'
+    };
+
+    transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+            message.author.send("There was an error sending the email, please try again.")
+            console.log(error);
+        } else {
+            message.author.send("Email sended")
+            console.log('Email sent: ' + info.response);
+        }
+    });
 
 
 };
