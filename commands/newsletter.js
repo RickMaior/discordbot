@@ -1,5 +1,6 @@
 const { messageCollect } = require("../utils/messageFuctions.js");
 const sgMail = require('@sendgrid/mail');
+var nodemailer = require('nodemailer');
 
 //check emails:
 // https://www.mail-tester.com/
@@ -29,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
     // console.log(msg)
 
 
-    var nodemailer = require('nodemailer');
+    
 
     var transporter = nodemailer.createTransport({
         service: 'gmail',
