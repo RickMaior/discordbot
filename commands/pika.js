@@ -4,9 +4,8 @@ module.exports.run = async (bot, message) => {
   const embed2 = new Discord.RichEmbed()
           .setTitle("WHO IS THIS POKEMON?")
           .setColor(0xfef65b)
-          .setImage(
-            "https://upload.wikimedia.org/wikipedia/pt/b/b0/025_Pikachu.png"
-          );
+          .attachFile("./images/pika.png")
+          .setImage('attachment://pika.png');
         message.channel.send(embed2);
     
 
