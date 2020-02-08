@@ -1,4 +1,4 @@
-const { messageCollect } = require("../utils/messageFuctions.js");
+const { messageCollect } = require("../utils/messageFunctions.js");
 const sgMail = require('@sendgrid/mail');
 var nodemailer = require('nodemailer');
 
