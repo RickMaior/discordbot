@@ -117,29 +117,31 @@ module.exports = async (bot, message) => {
 
 
     let commandFile;
-    if (command.startsWith(prefix)) {
-      if (bot.commands.has(command.slice(prefix.length))) {
-        commandFile = bot.commands.get(command.slice(prefix.length));
-        console.log(
-          `player-> ${message.author.tag} used ${command} command in the server ${
-          message.guild
-          } on #${message.channel.name} channel.`
-        );
+          if (command.startsWith(prefix)) {
+            if (bot.commands.has(command.slice(prefix.length))) {
+              commandFile = bot.commands.get(command.slice(prefix.length));
+              console.log(
+                `player-> ${message.author.tag} used ${command} command in the server ${
+                message.guild
+                } on #${message.channel.name} channel.`
+              );
 
-        commandFile.run(bot, message, args);
-      } else if (bot.aliases.has(command.slice(prefix.length))) {
-        commandFile = bot.commands.get(
-          bot.aliases.get(command.slice(prefix.length))
-        );
-        console.log(
-          `bot-> ${message.author.tag} used ${command} command in in the server ${
-          message.guild
-          } on #${message.channel.name} channel.`
-        );
+              commandFile.run(bot, message, args);
+            } else if (bot.aliases.has(command.slice(prefix.length))) {
+              commandFile = bot.commands.get(
+                bot.aliases.get(command.slice(prefix.length))
+              );
+              console.log(
+                `bot-> ${message.author.tag} used ${command} command in in the server ${
+                message.guild
+                } on #${message.channel.name} channel.`
+              );
 
-        commandFile.run(bot, message, args);
-      }
-    }
+              commandFile.run(bot, message, args);
+            }
+
+            await message.channel.stopTyping(true);
+          }
   }
 };
 
