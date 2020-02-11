@@ -4,6 +4,10 @@ const emojiCharacters = require("../emojiCharacters");
 
 
 module.exports.run = async (bot, message, args) => {
+
+ if(! message.guild.me.hasPermission(["ADD_REACTIONS","MANAGE_MESSAGES"])) 
+ return message.channel.send("I dont have permissions to be able to make this game possible")
+
   var total = 0;
 
   let botNumber;
@@ -25,7 +29,7 @@ module.exports.run = async (bot, message, args) => {
       .then(() => message.react(emojiCharacters[1])) // vai reagir com emoji de 1 a 3
       .then(() => message.react(emojiCharacters[2]))
       .then(() => message.react(emojiCharacters[3]))
-      .then(() => message.react(emojiCharacters["x"]));
+      //.then(() => message.react(emojiCharacters["x"]));
   }; // reaçao do emoji de 1 a 3
 
   const filter3 = (reaction, user) => {
