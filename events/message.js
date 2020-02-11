@@ -36,9 +36,9 @@ module.exports = async (bot, message) => {
 
 
 
-    // // Begin of xp  arranjar
-    console.log("tem mebro? " + message.guild.membersOn.has(message.author.id));
-    message.guild.membersOn.add(message.author.id);
+    // // // Begin of xp  arranjar
+    // console.log("tem mebro? " + message.guild.membersOn.has(message.author.id));
+    // message.guild.membersOn.add(message.author.id);
 
 
 
