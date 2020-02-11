@@ -3,6 +3,8 @@ let axios = require("axios")
 
 module.exports.run = async (bot, message, args) => {
 
+  return message.reply("Command under work")
+
   // const filter = (reaction, user) => {
   //   return user.id === message.author.id;
   // };
@@ -109,6 +111,6 @@ module.exports.help = {
   name: "Test",
   command: "test",
   aliases: ["test1", "test2"],
-  helpInfo: ["A command that lets you check if the bot is online"],
+  helpInfo: ["A test command"],
   usage: '["on working"]'
 };

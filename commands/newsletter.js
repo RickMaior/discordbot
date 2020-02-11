@@ -8,6 +8,7 @@ var nodemailer = require('nodemailer');
 
 
 module.exports.run = async (bot, message, args) => {
+    return message.reply("Command under work")
 
    // message.reply("Command not working")
     //TODO: make email work

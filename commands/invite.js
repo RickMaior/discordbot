@@ -2,13 +2,15 @@
 
 module.exports.run = async (bot, message) => {
 
-  let link = await bot
+   bot
     .generateInvite(["ADMINISTRATOR"])
     .then(link => {
       console.log(`Generated bot invite link: ${link}`);
       message.reply(`Link to invite me: ${link}`);
     })
     .catch(console.error);
+
+    
 
   
 

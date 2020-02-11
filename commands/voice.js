@@ -3,6 +3,7 @@
 //const mongoose = require("mongoose"); // necessario para ligar a mongoose
 
 module.exports.run = async (bot, message) => {
+  return message.reply("Command under work for many servers")
   //TODO: save the new room on db
   
   if (!message.member.hasPermission("MANAGE_CHANNELS"))

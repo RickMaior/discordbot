@@ -5,8 +5,8 @@ var stringArgv = require("string-argv"); // one possible way of doing the check 
 const serverInfo = require("../models/serverInfo.js");
 
 
-
-const {socket}  =require( "../index.js")
+const { socket } = require("../index.js");
+const  webhook  = require("../commands/webhook.js")
 
 module.exports = async (bot, message) => {
 
@@ -20,7 +20,9 @@ module.exports = async (bot, message) => {
   if (message.channel.type === "dm") {
     //message.reply("Now you make me happy 😃 ");
     console.log("The user sent a PM-> " + message.author.tag);
-
+    if(message.content === "webhook"){
+      webhook.run(bot,message)
+    }
   } else {
 
 
@@ -117,31 +119,31 @@ module.exports = async (bot, message) => {
 
 
     let commandFile;
-          if (command.startsWith(prefix)) {
-            if (bot.commands.has(command.slice(prefix.length))) {
-              commandFile = bot.commands.get(command.slice(prefix.length));
-              console.log(
-                `player-> ${message.author.tag} used ${command} command in the server ${
-                message.guild
-                } on #${message.channel.name} channel.`
-              );
+    if (command.startsWith(prefix)) {
+      if (bot.commands.has(command.slice(prefix.length))) {
+        commandFile = bot.commands.get(command.slice(prefix.length));
+        console.log(
+          `player-> ${message.author.tag} used ${command} command in the server ${
+          message.guild
+          } on #${message.channel.name} channel.`
+        );
 
-              commandFile.run(bot, message, args);
-            } else if (bot.aliases.has(command.slice(prefix.length))) {
-              commandFile = bot.commands.get(
-                bot.aliases.get(command.slice(prefix.length))
-              );
-              console.log(
-                `bot-> ${message.author.tag} used ${command} command in in the server ${
-                message.guild
-                } on #${message.channel.name} channel.`
-              );
+        commandFile.run(bot, message, args);
+      } else if (bot.aliases.has(command.slice(prefix.length))) {
+        commandFile = bot.commands.get(
+          bot.aliases.get(command.slice(prefix.length))
+        );
+        console.log(
+          `bot-> ${message.author.tag} used ${command} command in in the server ${
+          message.guild
+          } on #${message.channel.name} channel.`
+        );
 
-              commandFile.run(bot, message, args);
-            }
+        commandFile.run(bot, message, args);
+      }
 
-            await message.channel.stopTyping(true);
-          }
+      await message.channel.stopTyping(true);
+    }
   }
 };
 

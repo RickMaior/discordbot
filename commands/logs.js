@@ -3,6 +3,7 @@
 
 
 module.exports.run = async (bot, message, args) => {
+  return message.reply("Command under work")
     
     if (!message.member.hasPermission("MANAGE_CHANNELS"))
     return message.channel.send("YOU HAVE NO PERMISSIONS");

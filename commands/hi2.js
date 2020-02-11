@@ -1,7 +1,7 @@
 
 module.exports.run = async (bot, message, args) => {
 
-  message.reply("Command not working, please try this later")
+  return message.reply("Command under work")
 
   // let response = readline();
   // console.log("response : " + response);

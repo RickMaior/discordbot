@@ -1,6 +1,7 @@
 
 
 module.exports.run = async (bot, message, args) => {
+  return message.reply("Command under work")
   message.member.send("Did you missed me? \nDont worry, i dont run ");
   console.log("server -> " + message.guild);
   message.reply("HEllo")

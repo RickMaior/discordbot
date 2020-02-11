@@ -9,6 +9,9 @@ const { userID, title, url } = queue.shift();
 // play the song*/
 
 module.exports.run = async (bot, message, args) => {
+
+  return message.reply("Command under work")
+
   if (!args[0]) {
     message.channel.send("The current queue is: " + queue);
   } else {
@@ -48,6 +51,6 @@ module.exports.help = {
   name: "Queue",
   command: "queue",
   aliases: [NaN],
-  helpInfo: ["Test of queue"],
+  helpInfo: ["I will add and remove stuff from queue"],
   usage:'["on working"]'
 };
