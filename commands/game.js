@@ -6,7 +6,7 @@ const emojiCharacters = require("../emojiCharacters");
 module.exports.run = async (bot, message, args) => {
 
  if(! message.guild.me.hasPermission(["ADD_REACTIONS","MANAGE_MESSAGES"])) 
- return message.channel.send("I dont have permissions to be able to make this game possible")
+ return message.channel.send("I dont have permissions to be able to make this game")
 
   var total = 0;
 
