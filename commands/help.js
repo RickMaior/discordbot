@@ -55,7 +55,7 @@ module.exports.run = async (bot, message, args) => {
         props.help.command === args[0] ||
         props.help.aliases.includes(args[0])
       ) {
-        const embed2 = new Discord.RichEmbed()
+        const embed2 = new Discord.MessageEmbed()
           .setTitle(props.help.command)
           .addField("Info", props.help.helpInfo)
           .addField("Aliases", props.help.aliases)
@@ -85,10 +85,10 @@ module.exports.run = async (bot, message, args) => {
         } else {
           let page = args[0] || 1;
           let commandShow = commandList.slice(page * 5 - 5, page * 5);
-          console.log(commandShow)
+         // console.log(commandShow)
 
           // creation of embed
-          const embed = new Discord.RichEmbed()
+          const embed = new Discord.MessageEmbed()
             .setTitle("Commands available:")
             .setFooter(`Page${page}/${max}`)
             .setColor("RANDOM");

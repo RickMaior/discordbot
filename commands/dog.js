@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
     .get(`https://random.dog/woof.json`)
     
 
-    let dogembed = new Discord.RichEmbed()
+    let dogembed = new Discord.MessageEmbed()
     .setURL(response.data.url)
     .setTitle("Dog 🐶")
     .setImage(response.data.url)

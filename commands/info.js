@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
     let string1 = "__**Name**__: " + member.user.username + "\n" + "__**ID**__: " + member.id + "\n" + "__**Creation of account**__: " + member.user.createdAt + "\n" + "__**Bot**__: " + member.user.bot
     let string2 = "__**Nickname**__: " + member.nickname + "\n" + "__**Joined at**__: " + member.joinedAt + "\n" + "__**Roles**__: " + member.roles.size + "\n" + "__**Status**__: " + member.presence.status
 
-    let embed = new Discord.RichEmbed()
+    let embed = new Discord.MessageEmbed()
         .setTitle("Info about " + member.user.username)
         .setColor(member.displayHexColor, true)
         .setThumbnail(member.user.avatarURL)

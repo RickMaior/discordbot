@@ -4,6 +4,9 @@ const emojiCharacters = require("../emojiCharacters");
 // TODO : fix when someone plays on a zone that was played, dont lose his turn
 
 module.exports.run = async (bot, message, args) => {
+
+  // TODO : fix game2
+  return message.reply("Command being updated to new version")
   var board = [["a", "b", "c"], ["d", "e", "f"], ["g", "h", "i"]];
 
   var player1 = message.author.id;

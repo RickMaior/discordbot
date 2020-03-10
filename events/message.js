@@ -103,7 +103,7 @@ module.exports = async (bot, message) => {
 
 
 
-    if (message.isMentioned(bot.user.id)) {
+    if (message.mentions.has(bot.user.id)) {
       message.reply(`If you need help just do __**${prefix}help**__`);
     }
 

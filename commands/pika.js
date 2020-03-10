@@ -1,10 +1,10 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message) => {
-  const embed2 = new Discord.RichEmbed()
+  const embed2 = new Discord.MessageEmbed()
           .setTitle("WHO IS THIS POKEMON?")
           .setColor(0xfef65b)
-          .attachFile("./images/pika.png")
+          .attachFiles("./images/pika.png")
           .setImage('attachment://pika.png');
         message.channel.send(embed2);
     

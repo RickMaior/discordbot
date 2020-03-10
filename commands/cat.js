@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
     .get(`https://aws.random.cat/meow`)
    
 
-    let catembed = new Discord.RichEmbed()
+    let catembed = new Discord.MessageEmbed()
     .setURL(response.data.file)
     .setTitle("Cat 🐱")
     .setImage(response.data.file)

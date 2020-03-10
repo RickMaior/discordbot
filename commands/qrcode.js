@@ -30,8 +30,8 @@ module.exports.run = async (bot, message, args) => {
 				return message.reply("There was an error, please contact support")
 			}
 			
-			let qr = new Discord.Attachment(response.data, "QRcode");
-			const embed = new Discord.RichEmbed()
+			//let qr = new Discord.Attachment(response.data, "QRcode");
+			const embed = new Discord.MessageEmbed()
           .setTitle("QR Code")
 		  .setColor("RANDOM")
 		  .setImage(response.data)

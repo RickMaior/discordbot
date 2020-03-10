@@ -7,7 +7,7 @@ module.exports = async (bot, message) => {
 
 
   if (message.guild) {
-    var room = message.guild.channels.find(room => room.name === log);
+    var room = message.guild.channels.cache.find(room => room.name === log);
 
     if (room) {
       if (message.channel.name != log) {

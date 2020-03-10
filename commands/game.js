@@ -5,6 +5,10 @@ const emojiCharacters = require("../emojiCharacters");
 
 module.exports.run = async (bot, message, args) => {
 
+  // TODO : fix game
+
+  return message.reply("Command being updated to new version")
+
  if(! message.guild.me.hasPermission(["ADD_REACTIONS","MANAGE_MESSAGES"])) 
  return message.channel.send("I dont have permissions to be able to make this game")
 

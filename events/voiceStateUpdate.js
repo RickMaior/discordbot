@@ -4,6 +4,10 @@ const TempRoom = require("../models/tempRoom.js");
 const mongoose = require("mongoose");
 
 module.exports = async (bot, oldMember, newMember) => {
+
+  // to do fix this command
+
+  
   console.log("A user join/leave a voice channel");
   //console.log(newMember.voiceChannelID )
   let newVoiceRoom;

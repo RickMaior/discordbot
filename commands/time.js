@@ -2,7 +2,7 @@
 
 module.exports.run = async (bot, message) => {
     let time = new Date;
-    console.table(time);
+   // console.table(time);
 
     message.channel.send("day of the week: " + time.getDay())
 

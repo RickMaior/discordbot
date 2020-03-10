@@ -8,19 +8,22 @@ const mongoose = require("mongoose"); // necessario para ligar a mongoose
 module.exports = async bot => {
   bot.user.setActivity(activity);
 
-  bot.me = bot.users.get("265122531114090496"); // bot.me é meu id
+  bot.me = bot.users.cache.get("265122531114090496"); // bot.me é meu id
 
   bot.queue = [];
   console.log("\nQueue was created");
 
   // stuff from each server
 
-  bot.guilds.map((guild) =>{
-    guild.variable = [];
-    guild.membersOn = new Set ;
-    // arr of membersON   let arr = [ . . . set];
+
+  // // hope this comment doesnt break anithing
+  // //  todo check this comment
+  // bot.guilds.map((guild) =>{
+  //   guild.variable = [];
+  //   guild.membersOn = new Set ;
+  //   // arr of membersON   let arr = [ . . . set];
     
-  })
+  // })
  
 
   bot.game = false;

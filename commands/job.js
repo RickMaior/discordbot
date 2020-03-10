@@ -4,7 +4,7 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
  
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
     .setTitle("Jobs i can do for you:")
     .addField("job1:",`[click here](https://www.fiverr.com/share/4pdBR)`)
     .addField("job2:",`[click here](https://www.fiverr.com/share/lyNZy)`)

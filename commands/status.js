@@ -2,10 +2,10 @@ const Discord = require('discord.js');
 
 module.exports.run = async (bot, message, args) => {
 
-    let online = message.guild.members.filter(s => s.presence.status == "online").size
-    let offline = message.guild.members.filter(s => s.presence.status == "offline").size
-    let dnd = message.guild.members.filter(s => s.presence.status == "dnd").size
-    let idle = message.guild.members.filter(s => s.presence.status == "idle").size
+    let online = message.guild.members.cache.filter(s => s.presence.status == "online").size
+    let offline = message.guild.members.cache.filter(s => s.presence.status == "offline").size
+    let dnd = message.guild.members.cache.filter(s => s.presence.status == "dnd").size
+    let idle = message.guild.members.cache.filter(s => s.presence.status == "idle").size
 
     message.channel.send("There is " + online +" people online, " + offline + " people offline, " + dnd +" dont disturb people and " + idle + " idle people");
 

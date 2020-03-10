@@ -4,6 +4,10 @@ const xRapidKey = process.env.XRapidAPIKey;
 
 module.exports.run = async (bot, message, args) => {
 
+
+    //to do: fix this command ("Joke")
+    return message.reply("Command under work, please try again later")
+
     let validCategory = ["programming", "miscellaneous", "dark", "any"]
 
     args[0] ? category = args[0].toLowerCase() : category = "any";
@@ -27,7 +31,7 @@ module.exports.run = async (bot, message, args) => {
         .then((response) => {
             console.log(response)
 
-            const embed = new Discord.RichEmbed()
+            const embed = new Discord.MessageEmbed()
                 .setTitle("Joke")
                 .setColor("RANDOM")
                 .setDescription("")

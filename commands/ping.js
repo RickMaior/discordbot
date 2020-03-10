@@ -1,7 +1,7 @@
 
 
 module.exports.run = async (bot, message) => {
-    message.channel.send("My ping is: "+ Math.round(bot.ping))
+    message.channel.send("My ping is: "+ Math.round(bot.ws.ping))
 
 };
 

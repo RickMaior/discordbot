@@ -5,6 +5,9 @@ const {messageCollect} = require("../utils/messageFunctions.js")
 
 module.exports.run = async (bot, message, args) => {
 
+
+    // TODO : reaction collector not working
+    
     let messageSend = true;
 
    await  message.author.send("text").then(msg => msg.delete()).catch(() => {
@@ -22,7 +25,7 @@ module.exports.run = async (bot, message, args) => {
     problem = await messageCollect("What is your problem?", message)
     times = await messageCollect("How many times it appen?", message)
 
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
         .setColor('#0099ff')
         .setTitle('Bug report')
         .addField("Report was sent by: ", `<@${message.author.id}>`, false)
