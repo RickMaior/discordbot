@@ -86,8 +86,8 @@ module.exports = async bot => {
   console.log("Bot is loading...\n");
   console.log("Bot Username: " + bot.user.tag);
   console.log("Bot ID: " + bot.user.id);
-  console.log("Users: " + bot.users.size);
-  console.log("Servers: " + bot.guilds.size);
+  console.log("Users: " + bot.users.cache.size);
+  console.log("Servers: " + bot.guilds.cache.size);
 
   console.log("Bot has been successfully loaded.");
 };
