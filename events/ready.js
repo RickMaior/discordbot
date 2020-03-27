@@ -22,9 +22,9 @@ module.exports = async bot => {
   //   guild.variable = [];
   //   guild.membersOn = new Set ;
   //   // arr of membersON   let arr = [ . . . set];
-    
+
   // })
- 
+
 
   bot.game = false;
   console.log("Game lock was created");
@@ -34,21 +34,22 @@ module.exports = async bot => {
   try {
     mongoose.connect(
       `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${
-        process.env.DB_HOST
+      process.env.DB_HOST
       }-ysqaz.mongodb.net/test?retryWrites=true&w=majority`,
       {
-        useNewUrlParser: true
+        useNewUrlParser: true,
+        useUnifiedTopology: true
       }
     );
   } catch (err) {
     console.log(err);
   }
-
-  await mongoose.connection
-    .once("open", function() {
+ 
+  mongoose.connection
+    .once("open", function () {
       console.log("Connection with database has been made");
     })
-    .on("error", function(error) {
+    .on("error", function (error) {
       console.log("Connection with database: " + error);
     });
 
@@ -71,7 +72,7 @@ module.exports = async bot => {
 
 
   // bot.prefixes = new Map(); // fazer isto mas no evento message
-  
+
 
   // bot.guilds.forEach(async botGuild => {
   //   let prefix = settings.prefix;
