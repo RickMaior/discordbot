@@ -3,39 +3,42 @@
 const TempRoom = require("../models/tempRoom.js");
 const mongoose = require("mongoose");
 
-module.exports = async (bot, oldMember, newMember) => {
+module.exports = async (bot, oldState, newState) => {
 
   // to do fix this command
+  oldMember = oldState.member
+  newMember = newState.member
 
-  
-  console.log("A user join/leave a voice channel");
-  //console.log(newMember.voiceChannelID )
+  console.log("Event  voice update");
+  //console.log(newState.channelID )
   let newVoiceRoom;
-  let especialRoom = "593592505287835648"; // just for now
+  let especialRoom = "693062535548764190"; // just for now
 
-  if (newMember.voiceChannelID === especialRoom) {
+  if (newState.channelID === especialRoom) {
     console.log("Entrou em room especial");
-    newVoiceRoom = await newMember.voiceChannel
-      .clone(
-        "__" + newMember.user.username + "'s voice room",
-        true,
-        false,
-        "Needed a clone"
-      )
-      .then(clone => clone.setParent(newMember.voiceChannel.parent.id));
 
-    // console.log("NewvoiceRoom= "+newVoiceRoom)
-    //clone => {
-    // console.log(
-    //   /*Cloned ${channel.name}*/ `to make a channel called ` /*${clone.name}*/
-    //  );
-    //clone.setParent(newMember.voiceChannel.parentID);
-    //}
+    console.log("name:")
+    console.log(newState.member.user.username)
+    newVoiceRoom = await newState.channel
+      .clone({
+        name: "__" + newState.member.user.username + "'s voice room",
+        parent: newState.channel.parent.id,
+        reason: "Clone for the infinite room"
+      })
+    
+
+    // // console.log("NewvoiceRoom= "+newVoiceRoom)
+    // //clone => {
+    // // console.log(
+    // //   /*Cloned ${channel.name}*/ `to make a channel called ` /*${clone.name}*/
+    // //  );
+    // //clone.setParent(newState.channel.parentID);
+    // //}
 
     let tempRoom = new TempRoom({
       _id: mongoose.Types.ObjectId(),
-      server: newMember.guild.id, //.id
-      roomName: "__" + newMember.user.username + "'s voice room",
+      server: newState.guild.id, //.id
+      roomName: "__" + newState.member.user.username + "'s voice room",
       roomID: newVoiceRoom.id
     });
 
@@ -44,24 +47,26 @@ module.exports = async (bot, oldMember, newMember) => {
       .then(/*result => console.log(result)*/)
       .catch(err => console.log(err));
 
-    await newMember.setVoiceChannel(newVoiceRoom); // falta apagar o ficheiro depois de sair da voice room
+     await newState.setChannel(newVoiceRoom); // falta apagar o ficheiro depois de sair da voice room
   }
-  if (oldMember) {
-    if (oldMember.voiceChannelID !== especialRoom && oldMember.voiceChannel) {
-      if (oldMember.voiceChannel.members.size === 0) {
-        console.log("oldMember= " + oldMember.voiceChannelID);
+
+  // deleate room
+  if (oldState) {
+    if (oldState.channelID !== especialRoom && oldState.channel) {
+      if (oldState.channel.members.size === 0) {
+        console.log("oldState= " + oldState.channelID);
 
         if (
           await TempRoom.exists({
-            server: oldMember.guild.id,
-            roomID: oldMember.voiceChannelID
+            server: oldState.guild.id,
+            roomID: oldState.channelID
           })
         ) {
-          oldMember.voiceChannel.delete();
+          oldState.channel.delete();
           TempRoom.deleteOne(
             {
-              server: oldMember.guild.id,
-              roomID: oldMember.voiceChannelID
+              server: oldState.guild.id,
+              roomID: oldState.channelID
             },
             function(err) {
               if (err) return handleError(err);
@@ -71,6 +76,7 @@ module.exports = async (bot, oldMember, newMember) => {
       }
     }
   }
+
 };
 
 module.exports.help = {
