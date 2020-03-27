@@ -1,6 +1,8 @@
 
 const ServerInfo = require("../models/serverInfo.js");
 const mongoose = require("mongoose");
+const { messageChannelCollect } = require("../utils/messageFunctions.js");
+
 
 module.exports.run = async (bot, message, args) => {
   if (!message.member.hasPermission("MANAGE_GUILD"))
@@ -10,12 +12,37 @@ module.exports.run = async (bot, message, args) => {
     message.reply("Please define what you want me to change?");
   } else {
     switch (args[0]) {
+      case "setup":
+
+        const info = await ServerInfo.findOne({ server: message.guild.id });
+        if (!info) {
+          setupPrefix = await messageChannelCollect("What is the new prefix?", message)
+          setupVoiceRoom = await messageChannelCollect("What is the id of the channel for infinite voice", message)
+          //when not saved and going to create a new one
+          let serverInfo = new ServerInfo({
+            _id: mongoose.Types.ObjectId(),
+            prefix: setupPrefix,
+            voiceRoom: setupVoiceRoom,
+            server: message.guild.id
+          });
+
+          serverInfo
+            .save()
+            .then(result => console.log(result))
+            .catch(err => console.log(err));
+
+          message.reply("The new prefix is: " + setupPrefix + " and the voice room for infinite talking is : " + setupVoiceRoom)
+        } else {
+          message.reply("This server already has data saved")
+        }
+
+        break;
       case "prefix":
         if (!args[1]) {
           message.reply(
             "My actual prefix on this server is:  ```" +
-              message.guild.prefix +
-              "``` \nIf you want to change it please tell me to what prefix you want it for."
+            message.guild.prefix +
+            "``` \nIf you want to change it please tell me to what prefix you want it for."
           );
         } else {
           let newPrefix = args[1].trim();
@@ -23,18 +50,7 @@ module.exports.run = async (bot, message, args) => {
 
           if (!info) {
             //when not saved and going to create a new one
-            let serverInfo = new ServerInfo({
-              _id: mongoose.Types.ObjectId(),
-              prefix: newPrefix,
-              server: message.guild.id
-            });
-
-            serverInfo
-              .save()
-              .then(result => console.log(result))
-              .catch(err => console.log(err));
-
-            message.reply("Prefix was saved to " + newPrefix);
+            message.reply("You dont have any info saved on this server,please go make the setup")
           } else {
             // when it is saved and want to change
 
@@ -43,8 +59,8 @@ module.exports.run = async (bot, message, args) => {
             }
 
             let conditions = {
-                server: message.guild.id
-              }, // what you are cheking for
+              server: message.guild.id
+            }, // what you are cheking for
               update = { prefix: newPrefix }, // what you want to change
               options = { multi: true };
 
@@ -52,7 +68,7 @@ module.exports.run = async (bot, message, args) => {
 
             message.reply("The prefix was changed to " + newPrefix);
           }
-         
+
         }
         break;
 

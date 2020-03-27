@@ -1,9 +1,11 @@
 const Discord = require('discord.js');
 let axios = require("axios")
 
+
 module.exports.run = async (bot, message, args) => {
 
-  return message.reply("Command under work")
+
+  return message.reply("Command under work   " + msg )
 
   // const filter = (reaction, user) => {
   //   return user.id === message.author.id;
