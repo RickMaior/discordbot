@@ -1,18 +1,19 @@
 
-
+const ServerInfo = require("../models/serverInfo.js");
 const TempRoom = require("../models/tempRoom.js");
 const mongoose = require("mongoose");
 
 module.exports = async (bot, oldState, newState) => {
 
   // to do fix this command
-  oldMember = oldState.member
-  newMember = newState.member
+
 
   console.log("Event  voice update");
   //console.log(newState.channelID )
   let newVoiceRoom;
-  let especialRoom = "693062535548764190"; // just for now
+  const info = await ServerInfo.findOne({ server: newState.guild.id });
+  if (!info) return console.log("server not saved")
+  let especialRoom = info.voiceRoom; // just for now
 
   if (newState.channelID === especialRoom) {
     console.log("Entrou em room especial");
@@ -27,13 +28,7 @@ module.exports = async (bot, oldState, newState) => {
       })
     
 
-    // // console.log("NewvoiceRoom= "+newVoiceRoom)
-    // //clone => {
-    // // console.log(
-    // //   /*Cloned ${channel.name}*/ `to make a channel called ` /*${clone.name}*/
-    // //  );
-    // //clone.setParent(newState.channel.parentID);
-    // //}
+
 
     let tempRoom = new TempRoom({
       _id: mongoose.Types.ObjectId(),
