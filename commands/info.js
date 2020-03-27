@@ -25,7 +25,7 @@ module.exports.run = async (bot, message, args) => {
     let embed = new Discord.MessageEmbed()
         .setTitle("Info about " + member.user.username)
         .setColor(member.displayHexColor, true)
-        .setThumbnail(member.user.avatarURL)
+        .setThumbnail(member.user.displayAvatarURL())
         .addField("User info", string1)
         .addField("Server info", string2)
 
