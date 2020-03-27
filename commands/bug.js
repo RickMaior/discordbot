@@ -51,7 +51,7 @@ module.exports.run = async (bot, message, args) => {
             const reaction = collected.first();
 
             if (reaction.emoji.name === '✅') {
-                bot.channels.get(room).send(embed);
+                bot.channels.cache.get(room).send(embed);
                 message.author.send('Your bug report was sent');
             } else {
                 message.author.send('Your bug report was canceled!');
@@ -59,6 +59,7 @@ module.exports.run = async (bot, message, args) => {
         })
         .catch(collected => {
             message.author.send('You didnt reacted, your bug report was canceled');
+            console.error(collected)
         });
 
 
