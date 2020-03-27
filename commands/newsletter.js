@@ -1,4 +1,4 @@
-const { messageCollect } = require("../utils/messageFunctions.js");
+const { messageAuthorCollect } = require("../utils/messageFunctions.js");
 const sgMail = require('@sendgrid/mail');
 var nodemailer = require('nodemailer');
 
@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
 
    // message.reply("Command not working")
     //TODO: make email work
-    const email = await messageCollect("What is your email?", message);
+    const email = await messageAuthorCollect("What is your email?", message);
     console.log("email: " + email)
 
 

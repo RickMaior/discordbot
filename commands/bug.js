@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const room = "634793628124053545"
 
-const {messageCollect} = require("../utils/messageFunctions.js")
+const {messageAuthorCollect} = require("../utils/messageFunctions.js")
 
 module.exports.run = async (bot, message, args) => {
 
@@ -22,8 +22,8 @@ module.exports.run = async (bot, message, args) => {
 
 
 
-    problem = await messageCollect("What is your problem?", message)
-    times = await messageCollect("How many times it appen?", message)
+    problem = await messageAuthorCollect("What is your problem?", message)
+    times = await messageAuthorCollect("How many times it appen?", message)
 
     const embed = new Discord.MessageEmbed()
         .setColor('#0099ff')

@@ -1,7 +1,7 @@
 
 
 // Sends a message on private message and returns what the person answer
-function messageCollect(messageSend, message) {
+function messageAuthorCollect(messageSend, message) {
     const filter = m => !m.author.bot && m.attachments.size == 0;
 
     return message.author.send(messageSend).then(msg => msg.channel.awaitMessages(filter, { max: 1, time: 60 * 1000, errors: ['time'] })
@@ -17,6 +17,6 @@ function messageCollect(messageSend, message) {
 
 
 module.exports = {
-    messageCollect,
+    messageAuthorCollect,
 
 }

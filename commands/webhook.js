@@ -1,4 +1,4 @@
-const { messageCollect } = require("../utils/messageFunctions.js");
+const { messageAuthorCollect } = require("../utils/messageFunctions.js");
 const webHookFn = require("../utils/webhookFunctions.js");
 
 module.exports.run = async (bot, message, args) => {
@@ -7,9 +7,9 @@ module.exports.run = async (bot, message, args) => {
 
 
 
-    // if(!args[0])   { const messageSend = await messageCollect("What is the message you want to send",message)}
+    // if(!args[0])   { const messageSend = await messageAuthorCollect("What is the message you want to send",message)}
 
-    const messageSend = await messageCollect("What is the message you want to send", message)
+    const messageSend = await messageAuthorCollect("What is the message you want to send", message)
     if (!messageSend) return message.reply("Error getting the message")
     console.log(messageSend)
 
