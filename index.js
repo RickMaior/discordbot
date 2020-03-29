@@ -8,13 +8,10 @@
 // 7º-     no heroku verificar se tem node.js em buildpacks
 // 8º
 
-
 //  atualizaçao ( errado)
 // git add .
 // git commit -m "lembrete de alteracao"
 // git push heroku master
-
-
 
 //Atualizaçao
 //git add .
@@ -25,8 +22,6 @@
 // heroku scale worker=0
 //heroku ps   -> for how much time in this mouth
 
-
-
 //  Get bot started auto
 //  Start: pm2 start <file>
 // Restart: pm2 restart <file>
@@ -36,7 +31,7 @@
 
 //const botlink = 'https://discordapp.com/oauth2/authorize?client_id=585515672826675200&scope=bot&permissions=2146958847';
 
-//setup everithing  
+//setup everithing
 // npm install --global --production windows-build-tools --vs2015
 
 //const emojiCharacters = require("./emojiCharacters");
@@ -47,39 +42,32 @@
 
 // comentario de teste
 
-
-require('dotenv').config()
+require("dotenv").config();
 
 const Discord = require("discord.js");
 const { Client, Attachment } = require("discord.js");
-
 
 const fs = require("fs");
 const token = process.env.TOKEN;
 
 const bot = new Client();
 
-
-let io = require('socket.io-client');
+let io = require("socket.io-client");
 let socket = io.connect("https://webpagerick.herokuapp.com/", {
-    reconnection: true
+  reconnection: true
 });
 
-socket.on('connect', function () {
-  console.log("connected on socket")
+socket.on("connect", function() {
+  console.log("connected on socket");
 });
 
-socket.on('disconnect', function () {
-  console.log("disconected off socket")
+socket.on("disconnect", function() {
+  console.log("disconected off socket");
 });
-
-
-
 
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 bot.events = new Discord.Collection();
-
 
 //Command Handler
 fs.readdir("./commands/", (err, files) => {
@@ -133,7 +121,7 @@ bot.login(token);
 
 module.exports = {
   socket
-}
+};
 
 /* -------------------------------------------------------------------------------------------------------------------------- */
 //Inicio da coneçao com outra app
