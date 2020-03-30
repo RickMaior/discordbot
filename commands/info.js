@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
         var member = message.member
     } else {
 
-        var member = message.mentions.members.first() || message.guild.members.get(args[0]);
+        var member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 
     }
    
